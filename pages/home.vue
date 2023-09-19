@@ -1,11 +1,12 @@
 <template>
-  <div
-    class=" w-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-between py-10 relative overflow-x-hidden">
+  <div class="w-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-between py-10 relative overflow-x-hidden">
     <div class=" w-96 h-96 bg-gradient-to-br from-gray-800 to-cyan-300 rounded-full flex items-center justify-center absolute -right-52 -top-12">
       <div class="w-72 h-72 bg-gradient-to-br from-slate-900 to-indigo-500 rounded-full"></div>
     </div>
     <div class="absolute w-screen top-0 left-0">
+
       <div class="mask-circle-out"></div>
+
       <div class="bg-white fixed bottom-0 w-full flex justify-between px-20 py-3 rounded-tr-xl">
         <div class="flex flex-col items-center gap-1">
           <Icon name="ic:round-home" class="text-3xl" />
@@ -21,7 +22,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col min-h-screen gap-3 px-10 z-20 pt-10">
+      <div class="flex flex-col min-h-screen gap-3 px-10 pt-10 z-10">
         <div class="flex gap-4 items-center">
           <div class="w-20 h-20 bg-slate-500 rounded-full"></div>
           <div class="flex flex-col text-white">
@@ -55,6 +56,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -65,7 +67,7 @@ const pencarian = ref("")
 
 <style scoped>
     .mask-circle-out {
-        @apply bg-gray-400 absolute inset-0 opacity-70 -z-10; /* bg-gray-400 untuk background abu-abu, absolute dan inset-0 untuk posisi dan ukuran penuh */
+        @apply bg-gray-400 absolute inset-0 opacity-70; /* bg-gray-400 untuk background abu-abu, absolute dan inset-0 untuk posisi dan ukuran penuh */
         mask-image: radial-gradient(circle at 50% -100%, transparent 20%, transparent 70%, black 70.1%);
     }
 </style>
