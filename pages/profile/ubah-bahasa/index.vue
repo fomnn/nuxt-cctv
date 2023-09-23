@@ -30,7 +30,7 @@
         <h2>Profile</h2>
       </div>
 
-      <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center">
+      <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center gap-3">
         <div class="flex items-center justify-between px-5 py-2 rounded-full w-full bg-gradient-to-br from-purple-950 to-rose-700">
           <div class="flex items-center gap-2 text-lg">
             <div
@@ -41,17 +41,19 @@
           </div>
           <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
         </div>
+        <div class="flex items-center w-10/12 px-3 py-1 bg-white rounded-full">
+          <Input class="focus:outline-none w-full bg-transparent" placeholder="Cari Bahasa" />
+          <div class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 rounded-full flex items-center justify-center">
+            <Icon name="ph:magnifying-glass-bold" class=" text-white" />
+          </div>
+        </div>
         <div class="bg-white w-10/12 flex flex-col px-4 py-3 rounded-lg">
           <form class="flex flex-col gap-16">
             <div class="flex flex-col gap-4">
-              <label for="" v-for="i in 4">
-                <p class="font-semibold">Nama</p>
-                <div class="flex border-b border-stone-700 items-center">
-                  <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
-                  <input type="text" class="focus:outline-none w-full border-none" >
-                  <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
-                </div>
-              </label>
+              <div class="border-b border-stone-500" v-for="i in 3">
+                <p class="font-semibold">English</p>
+                <p>Inggris (UK)</p>
+              </div>
             </div>
             <div class="flex-1 flex flex-col items-center gap-6">
               <button class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md flex items-center gap-2">
