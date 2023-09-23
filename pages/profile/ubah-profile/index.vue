@@ -44,11 +44,35 @@
         <div class="bg-white w-10/12 flex flex-col px-4 py-3 rounded-b-lg">
           <form class="flex flex-col gap-16">
             <div class="flex flex-col gap-4">
-              <label for="" v-for="i in 4">
+              <label>
                 <p class="font-semibold">Nama</p>
                 <div class="flex border-b border-stone-700 items-center">
                   <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
-                  <Input transparent style="max-width: 300px"></Input>
+                  <Input class="w-full focus:outline-none" />
+                  <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
+                </div>
+              </label>
+              <label>
+                <p class="font-semibold">Email</p>
+                <div class="flex border-b border-stone-700 items-center">
+                  <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
+                  <Input class="w-full focus:outline-none" />
+                  <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
+                </div>
+              </label>
+              <label>
+                <p class="font-semibold">No Telpon</p>
+                <div class="flex border-b border-stone-700 items-center">
+                  <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
+                  <Input class="w-full focus:outline-none" />
+                  <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
+                </div>
+              </label>
+              <label>
+                <p class="font-semibold">NIM</p>
+                <div class="flex border-b border-stone-700 items-center">
+                  <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
+                  <Input class="w-full focus:outline-none" />
                   <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
                 </div>
               </label>
