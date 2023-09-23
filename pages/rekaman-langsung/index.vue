@@ -34,9 +34,4 @@
 </script>
 
 <style scoped>
-.mask-circle-out {
-  @apply bg-gray-400 absolute inset-0 opacity-70 -z-10;
-  /* bg-gray-400 untuk background abu-abu, absolute dan inset-0 untuk posisi dan ukuran penuh */
-  mask-image: radial-gradient(circle at 50% -100%, transparent 20%, transparent 70%, black 70.1%);
-}
 </style>
