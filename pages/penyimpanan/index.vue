@@ -53,7 +53,7 @@
             <div
               class="bg-white/60 overflow-y-auto rounded-b-2xl pt-3 pb-2 max-h-48 transition-all ease-in-out duration-150"
               v-if="pilihWaktu">
-              <p class="hover:bg-stone-400/30 px-4 py-1 transition-colors ease-in" v-for="i in 6">anjing 12</p>
+              <p class="hover:bg-stone-400/30 px-4 py-1 transition-colors ease-in" v-for="i in 6">12</p>
             </div>
           </div>
         </div>
