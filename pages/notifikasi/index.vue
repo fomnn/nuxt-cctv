@@ -22,27 +22,19 @@
         </div>
       </div>
 
-      <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center gap-8">
-        <div class="">
-          <Icon name="material-symbols:notifications" class="" />
-        </div>
-        <div class="flex flex-col gap-3 w-full">
-          <div 
-            class="flex items-center justify-between bg-white px-5 py-1 rounded-full w-full" v-for="i in 3">
-            <div class="flex items-center gap-3 text-lg">
-              <div
-                class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
-                <Icon name="ic:twotone-location-on" />
-              </div>
-              <div class="flex flex-col">
-                <h3 class="font-semibold">Lantai 5</h3>
-                <p class="text-sm">Tanggal: 15 Juni 2023</p>
-              </div>
+      <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl px-5 pt-6 flex flex-col items-center gap-5">
+        <div class="flex flex-col items-center gap-5">
+          <div class=" bg-white w-24 h-24 rounded-full flex items-center justify-center">
+            <Icon name="material-symbols:notifications" class="text-7xl text-purple-950" />
+          </div>
+          <div class="flex flex-col gap-3 w-full max-h-[30rem] overflow-y-auto rounded-lg">
+            <div class="bg-white flex flex-col items-center text-center px-4 py-1 rounded-xl" v-for="i in 7">
+              <p class="py-2 text-lg font-semibold border-b w-full border-stone-600">Koneksi Terputus</p>
+              <p class="py-2 ">Koneksi dengan kamera TULT 01.01 pada Lantai 1 terputus. </p>
             </div>
-            <Icon name="ic:outline-keyboard-arrow-down" class="text-2xl text-orange-400" />
           </div>
         </div>
-        <button class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md">Pulihkan</button>
+        <button class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1 rounded-full shadow-md">Bersihkan</button>
       </div>
 
     </div>
