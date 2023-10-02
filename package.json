@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.0.0-rc.2",
+    "@vexip-ui/nuxt": "^1.1.0",
     "flowbite": "^1.8.1",
     "flowbite-datepicker": "^1.2.2",
     "vue-tailwind-datepicker": "^1.4.6"
