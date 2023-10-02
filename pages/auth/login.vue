@@ -15,14 +15,14 @@
                         class="w-[35px] h-[35px] bg-gradient-to-br from-purple-950 to-rose-700 rounded-full flex items-center justify-center">
                         <IconUsername />
                     </div>
-                    <input type="text" class="bg-transparent focus:outline-none" placeholder="Nama pengguna">
+                    <input type="text" class="bg-transparent focus:ring-0 w-full border-0" placeholder="Nama pengguna">
                 </label>
                 <label for="password" class="flex items-center bg-white p-2 rounded-3xl gap-3 w-full">
                     <div
                         class="w-[35px] h-[35px] bg-gradient-to-br from-purple-950 to-rose-700 rounded-full flex items-center justify-center">
                         <IconPassword />
                     </div>
-                    <input type="text" class="bg-transparent focus:outline-none" placeholder="Kata Sandi">
+                    <input type="text" class="bg-transparent focus:ring-0 w-full border-0" placeholder="Kata Sandi">
                 </label>
                 <NuxtLink to="/home" class="bg-yellow-500 text-white py-2 px-10 rounded-3xl font-semibold">Masuk</NuxtLink>
                 <NuxtLink to="#" class="text-white">Lupa kata sandi?</NuxtLink>

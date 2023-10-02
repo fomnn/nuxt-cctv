@@ -11,9 +11,9 @@
       <BottomNavigation />
 
       <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
-        <div class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
+        <NuxtLink to="/home" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
           <Icon name="typcn:arrow-back" class="" />
-        </div>
+        </NuxtLink>
         <h2>Profile</h2>
       </div>
 
