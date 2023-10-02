@@ -13,7 +13,7 @@
         <h2>Rekaman Langsung</h2>
       </div>
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
-        <div 
+        <NuxtLink to="/rekaman-langsung/lantai-1" 
           class="flex items-center justify-between bg-white px-5 py-3 rounded-full"
           v-for="i in 9">
           <div class="flex items-center gap-2 text-lg">
@@ -24,7 +24,7 @@
             <p>Basement</p>
           </div>
           <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div>

@@ -21,14 +21,14 @@
             <h2 class="text-xl font-semibold">Lantai 1</h2>
           </div>
           <div class="grid grid-cols-3 w-full gap-2">
-            <div class="flex flex-col items-center border border-slate-400 rounded-md col-span-3 px-1 py-2">
+            <NuxtLink to="/rekaman-langsung/lantai-1/semua-kamera" class="flex flex-col items-center border border-slate-400 rounded-md col-span-3 px-1 py-2">
               <Icon name="mdi:cctv" class="text-3xl" />
               <h3>All Camera</h3>
-            </div>
-            <div class="flex flex-col items-center border border-slate-400 rounded-md px-1 py-2" v-for="i in 11">
+            </NuxtLink>
+            <NuxtLink to="/rekaman-langsung/lantai-1/semua-kamera" class="flex flex-col items-center border border-slate-400 rounded-md px-1 py-2" v-for="i in 11">
               <Icon name="mdi:cctv" class="text-3xl" />
               <h3>All Camera</h3>
-            </div>
+            </NuxtLink>
           </div>
         </div>
       </div>

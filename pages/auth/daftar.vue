@@ -6,7 +6,7 @@
       <div class="w-72 h-72 bg-gradient-to-br from-slate-900 to-indigo-500 rounded-full"></div>
     </div>
     <div class="absolute w-screen top-0">
-      <div class="flex flex-col items-center h-screen gap-3">
+      <div class="flex flex-col items-center h-screen gap-3 pt-8">
         <div class="bg-white flex flex-col items-center w-6/12 rounded-3xl py-6 gap-3">
           <!-- <LogoTult1Logo /> -->
           <NuxtImg src="/img/tult2.png" width="100px" />
@@ -22,30 +22,30 @@
             <div class="flex flex-col gap-2 w-full">
               <label>
                 <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none border-b border-stone-600 w-full">
+                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none border-b border-stone-600 w-full">
+                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none border-b border-stone-600 w-full">
+                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none border-b border-stone-600 w-full">
+                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none border-b border-stone-600 w-full">
+                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none border-b border-stone-600 w-full">
+                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
             </div>
-            <button type="submit" class="bg-yellow-500 text-white py-2 px-12 rounded-3xl font-semibold w-fit">Daftar</button>
+            <NuxtLink to="/auth/login" class="bg-yellow-500 text-white py-2 px-12 rounded-3xl font-semibold w-fit">Daftar</NuxtLink >
           </form>
         </div>
       </div>

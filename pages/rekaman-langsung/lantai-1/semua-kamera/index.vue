@@ -22,9 +22,9 @@
             <p class="text-lg">Lantai 1</p>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <div class="bg-slate-400 w-full h-28 rounded-md" v-for="i in 4">
+            <NuxtLink to="/rekaman-langsung/lantai-1/semua-kamera/tult-1" class="bg-slate-400 w-full h-28 rounded-md" v-for="i in 4">
               kamera
-            </div>
+            </NuxtLink>
           </div>
         </div>
       </div>

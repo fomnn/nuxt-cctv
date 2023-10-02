@@ -7,20 +7,7 @@
 
       <!-- <div class="mask-circle-out"></div> -->
 
-      <div class="bg-white fixed bottom-0 w-full flex justify-between px-20 py-3 rounded-tr-xl">
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="ic:round-home" class="text-3xl" />
-          <p>Utama</p>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="material-symbols:notifications" class="text-3xl" />
-          <p>Notifikasi</p>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="ri:settings-4-fill" class="text-3xl" />
-          <p>Pengaturan</p>
-        </div>
-      </div>
+      <BottomNavigation />
 
       <div class="flex flex-col min-h-screen gap-3 px-10 pt-10 z-10">
         <div class="flex gap-4 items-center">
@@ -32,28 +19,28 @@
           </div>
         </div>
         <div class="flex justify-between items-center bg-white p-2 pl-5 rounded-3xl w-full">
-          <input type="text" class="focus:outline-none w-full" placeholder="Pencarian" id="" name="" v-model="pencarian">
+          <input type="text" class="focus:outline-none w-full border-0 outline-none" placeholder="Pencarian" id="" name="" v-model="pencarian">
           <div class="w-7 h-7 bg-gradient-to-br from-purple-950 to-rose-700 rounded-full flex justify-center items-center">
             <Icon name="ph:magnifying-glass-bold" class="text-white" />
           </div>
         </div>
         <div class="flex flex-col gap-4">
-          <div class="flex items-center justify-start px-8 text-white gap-4 bg h-20 bg-gradient-to-br text-2xl from-purple-950 to-rose-700 rounded-2xl shadow w-full">
+          <NuxtLink to="/petunjuk-pengguna" class="flex items-center justify-start px-8 text-white gap-4 bg h-20 bg-gradient-to-br text-2xl from-purple-950 to-rose-700 rounded-2xl shadow w-full">
             <Icon name="material-symbols:file-copy-outline-sharp" class=" "/>
             <p>Petunjuk Pengguna</p>
-          </div>
-          <div class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full">
+          </NuxtLink>
+          <NuxtLink to="/penyimpanan" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full">
             <Icon name="material-symbols:folder-outline-sharp" class=" "/>
             <p>Penyimpanan</p>
-          </div>
-          <div class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full">
+          </NuxtLink>
+          <NuxtLink to="/rekaman-langsung" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full">
             <Icon name="bx:cctv" class=" "/>
             <p>Rekaman Langsung</p>
-          </div>
-          <div class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full">
+          </NuxtLink>
+          <NuxtLink to="/tempat-sampah" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full">
             <Icon name="material-symbols:delete-outline-sharp" class=" "/>
             <p>Tempat Sampah</p>
-          </div>
+          </NuxtLink>
         </div>
       </div>
 

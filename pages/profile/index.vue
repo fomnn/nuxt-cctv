@@ -8,20 +8,7 @@
     <div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col justify-end">
 
       <!-- <div class="mask-circle-out"></div> -->
-      <div class="bg-white fixed bottom-0 w-full flex justify-between px-20 py-3 rounded-tr-xl">
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="ic:round-home" class="text-3xl" />
-          <p>Utama</p>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="material-symbols:notifications" class="text-3xl" />
-          <p>Notifikasi</p>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="ri:settings-4-fill" class="text-3xl" />
-          <p>Pengaturan</p>
-        </div>
-      </div>
+      <BottomNavigation />
 
       <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
         <div class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
@@ -41,7 +28,7 @@
             </div>
           </div>
           <div class="flex flex-col gap-3 w-full">
-            <div class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
+            <NuxtLink to="/profile/ubah-profile" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
               <div class="flex items-center gap-2 text-lg">
                 <div
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
@@ -50,8 +37,8 @@
                 <p>Ubah Profile</p>
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
-            </div>
-            <div class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
+            </NuxtLink>
+            <NuxtLink to="/profile/ubah-bahasa" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
               <div class="flex items-center gap-2 text-lg">
                 <div
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
@@ -60,8 +47,8 @@
                 <p>Ubah Bahasa</p>
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
-            </div>
-            <div class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
+            </NuxtLink>
+            <NuxtLink to="/profile/pengaturan-lainnya" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
               <div class="flex items-center gap-2 text-lg">
                 <div
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
@@ -70,8 +57,8 @@
                 <p>Pengaturan Lainnya</p>
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
-            </div>
-            <div class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
+            </NuxtLink>
+            <NuxtLink to="#" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
               <div class="flex items-center gap-2 text-lg">
                 <div
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
@@ -80,7 +67,7 @@
                 <p>Keamanan Akun</p>
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
-            </div>
+            </NuxtLink>
           </div>
         </div>
         <div class="flex gap-3 items-center text-white bg-red-600 w-fit px-4 py-1 rounded-full">

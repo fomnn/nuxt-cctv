@@ -7,20 +7,7 @@
 
       <!-- <div class="mask-circle-out"></div> -->
 
-      <div class="bg-white fixed bottom-0 w-full flex justify-between px-20 py-3 rounded-tr-xl">
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="ic:round-home" class="text-3xl" />
-          <p>Utama</p>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="material-symbols:notifications" class="text-3xl" />
-          <p>Notifikasi</p>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="ri:settings-4-fill" class="text-3xl" />
-          <p>Pengaturan</p>
-        </div>
-      </div>
+      <BottomNavigation />
 
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl px-5 pt-6 flex flex-col items-center gap-5">
         <div class="flex flex-col items-center gap-5">

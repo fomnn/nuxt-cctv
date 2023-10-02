@@ -24,13 +24,13 @@
                     </div>
                     <input type="text" class="bg-transparent focus:outline-none" placeholder="Kata Sandi">
                 </label>
-                <button type="submit" class="bg-yellow-500 text-white py-2 px-10 rounded-3xl font-semibold">Masuk</button>
+                <NuxtLink to="/home" class="bg-yellow-500 text-white py-2 px-10 rounded-3xl font-semibold">Masuk</NuxtLink>
                 <NuxtLink to="#" class="text-white">Lupa kata sandi?</NuxtLink>
             </form>
         </div>
         <div class="flex gap-2 items-center">
             <p class="text-white">Belum punya akun?</p>
-            <NuxtLink to="#" class="text-yellow-500">Daftar</NuxtLink>
+            <NuxtLink to="/auth/daftar" class="text-yellow-500">Daftar</NuxtLink>
         </div>
     </div>
 </template>
