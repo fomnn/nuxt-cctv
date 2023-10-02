@@ -5,7 +5,7 @@
     </div>
     <div class="absolute w-screen top-0 left-0">
 
-      <div class="mask-circle-out"></div>
+      <!-- <div class="mask-circle-out"></div> -->
 
       <div class="bg-white fixed bottom-0 w-full flex justify-between px-20 py-3 rounded-tr-xl">
         <div class="flex flex-col items-center gap-1">
