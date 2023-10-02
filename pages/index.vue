@@ -10,7 +10,10 @@
 </template>
 
 <script lang="ts" setup>
-
+const router = useRouter();
+setTimeout(() => {
+  router.push("/auth/login")
+}, 5000);
 </script>
 
 
