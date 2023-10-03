@@ -1,3 +1,32 @@
+<script lang="ts" setup>
+const client = useSupabaseClient()
+
+const email = ref('');
+const fullName = ref('');
+const noTelp = ref('');
+const nim = ref('');
+const password = ref('');
+const ulangiPassword = ref('');
+const errorMsg = ref('e');
+const successMsg = ref('s');
+
+async function signUp() {
+  console.log('kontolll ')
+  try {
+    const { data, error } = await client.auth.signUp({
+      phone: noTelp.value,
+      email: email.value,
+      password: password.value,
+    })
+    console.log(data.user);
+    if (error) throw error;
+    successMsg.value = 'Check your email for the confirmation link.'
+  } catch (error) {
+    errorMsg.value = (error as Error).message;
+  }
+}
+</script>
+
 <template>
   <div
     class="w-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-between py-10 relative overflow-x-hidden">
@@ -22,38 +51,35 @@
             <div class="flex flex-col gap-2 w-full">
               <label>
                 <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <input type="text" name="" id="" v-model="fullName" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
-                <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <p>Email</p>
+                <input type="text" name="" id="" v-model="email" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
-                <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <p>No Telepon</p>
+                <input type="text" name="" id="" v-model="noTelp" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
-                <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <p>NIM</p>
+                <input type="text" name="" id="" v-model="nim" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
-                <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <p>Kata sandi</p>
+                <input type="text" name="" id="" v-model="password" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
-                <p>Nama</p>
-                <input type="text" name="" id="" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <p>Ulangi Kata Sandi</p>
+                <input type="text" name="" id="" v-model="ulangiPassword" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
             </div>
-            <NuxtLink to="/auth/login" class="bg-yellow-500 text-white py-2 px-12 rounded-3xl font-semibold w-fit">Daftar</NuxtLink >
+            <button @click="signUp" class="bg-yellow-500 text-white py-2 px-12 rounded-3xl font-semibold w-fit">Daftar</button >
           </form>
+          <p class="text-green-400">{{ successMsg }}</p>
+          <p class="text-red-500">{{ errorMsg }}</p>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-
-</script>
-

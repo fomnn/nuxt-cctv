@@ -5,7 +5,10 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'nuxt-icon',
     '@vueuse/nuxt',
-    '@vexip-ui/nuxt'
+    '@vexip-ui/nuxt',
+    '@nuxtjs/supabase'
   ],
-  
+  supabase: {
+    redirect: false,
+  }
 })
