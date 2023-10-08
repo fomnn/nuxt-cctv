@@ -1,30 +1,40 @@
 <script lang="ts" setup>
-const client = useSupabaseClient()
 
-const email = ref('');
-const fullName = ref('');
-const noTelp = ref('');
-const nim = ref('');
-const password = ref('');
-const ulangiPassword = ref('');
+const supabase = useSupabaseClient();
+const router = useRouter();
+
+const email = ref('fathurrahmann.oman@gmail.com');
+const fullName = ref('asep');
+const noTelp = ref('082238382679');
+const nim = ref('6701213024');
+const password = ref('123123');
+const ulangiPassword = ref('123123');
 const errorMsg = ref('e');
 const successMsg = ref('s');
 
-async function signUp() {
-  console.log('kontolll ')
+const signUp = async () => {
   try {
-    const { data, error } = await client.auth.signUp({
-      phone: noTelp.value,
+    const { data, error } = await supabase.auth.signUp({
       email: email.value,
       password: password.value,
+      options: {
+        data: {
+          nama_lengkap: fullName.value,
+          no_telp: noTelp.value,
+          nim: nim.value,
+        }
+      }
     })
-    console.log(data.user);
-    if (error) throw error;
-    successMsg.value = 'Check your email for the confirmation link.'
+    if (error) {
+      errorMsg.value = error.message
+    } else {
+      router.push('/auth/login')
+    }
   } catch (error) {
-    errorMsg.value = (error as Error).message;
+    errorMsg.value = (error as Error).message
   }
 }
+
 </script>
 
 <template>
@@ -47,34 +57,40 @@ async function signUp() {
           <p>Akun Baru</p>
         </div>
         <div class="w-full h-full bg-slate-100/40 rounded-t-[3rem] px-10 py-5">
-          <form class="flex flex-col gap-14 items-center">
+          <form @submit.prevent="signUp" class="flex flex-col gap-14 items-center">
             <div class="flex flex-col gap-2 w-full">
               <label>
                 <p>Nama</p>
-                <input type="text" name="" id="" v-model="fullName" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <input type="text" name="" id="" v-model="fullName"
+                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>Email</p>
-                <input type="text" name="" id="" v-model="email" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <input type="text" name="" id="" v-model="email"
+                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>No Telepon</p>
-                <input type="text" name="" id="" v-model="noTelp" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <input type="text" name="" id="" v-model="noTelp"
+                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>NIM</p>
-                <input type="text" name="" id="" v-model="nim" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <input type="text" name="" id="" v-model="nim"
+                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>Kata sandi</p>
-                <input type="text" name="" id="" v-model="password" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <input type="text" name="" id="" v-model="password"
+                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>Ulangi Kata Sandi</p>
-                <input type="text" name="" id="" v-model="ulangiPassword" class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <input type="text" name="" id="" v-model="ulangiPassword"
+                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
             </div>
-            <button @click="signUp" class="bg-yellow-500 text-white py-2 px-12 rounded-3xl font-semibold w-fit">Daftar</button >
+            <button class="bg-yellow-500 text-white py-2 px-12 rounded-3xl font-semibold w-fit">Daftar</button>
           </form>
           <p class="text-green-400">{{ successMsg }}</p>
           <p class="text-red-500">{{ errorMsg }}</p>

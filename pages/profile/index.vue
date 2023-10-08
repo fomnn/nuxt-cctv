@@ -70,10 +70,10 @@
             </NuxtLink>
           </div>
         </div>
-        <div class="flex gap-3 items-center text-white bg-red-600 w-fit px-4 py-1 rounded-full">
+        <button @click="signOut" class="flex gap-3 items-center text-white bg-red-600 w-fit px-4 py-1 rounded-full">
           <Icon name="octicon:sign-out-16" class="rotate-180" />
           <p>Keluar</p>
-        </div>
+        </button>
       </div>
 
     </div>
@@ -81,12 +81,21 @@
 </template>
 
 <script lang="ts" setup>
+
+const supabase = useSupabaseClient();
+const router = useRouter();
+
+const signOut = async () => {
+    try {
+        const { error } = await supabase.auth.signOut()
+        if (error) throw error;
+        router.push('/')
+    } catch (error) {
+        alert((error as Error).message)
+    }
+}
+
 </script>
 
 <style scoped>
-.mask-circle-out {
-  @apply bg-gray-400 absolute inset-0 opacity-70;
-  /* bg-gray-400 untuk background abu-abu, absolute dan inset-0 untuk posisi dan ukuran penuh */
-  mask-image: radial-gradient(circle at 50% -100%, transparent 20%, transparent 70%, black 70.1%);
-}
 </style>
