@@ -1,5 +1,5 @@
 <script setup>
-
+const router = useRouter();
 const supabase = useSupabaseClient();
 
 const allLantai = async () => {
@@ -23,15 +23,14 @@ console.log(semuaLantai);
     </div>
     <div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col ">
       <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
-        <div class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
+        <button @click="router.go(-1)" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
           <Icon name="typcn:arrow-back" class="" />
-        </div>
+        </button>
         <h2>Rekaman Langsung</h2>
       </div>
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
-        <NuxtLink v-for="lantai of semuaLantai" :to="'/rekaman-langsung/' + lantai.path"
-          class="flex items-center justify-between bg-white px-5 py-3 rounded-full"
-          :key="lantai.id">
+        <NuxtLink v-for="lantai of semuaLantai" :to="'/rekaman-langsung/' + lantai.id"
+          class="flex items-center justify-between bg-white px-5 py-3 rounded-full" :key="lantai.id">
           <div class="flex items-center gap-2 text-lg">
             <div
               class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
@@ -40,8 +39,7 @@ console.log(semuaLantai);
             <p>{{ lantai.lantai }}</p>
           </div>
           <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
-</NuxtLink>
-
+        </NuxtLink>
       </div>
     </div>
   </div>
