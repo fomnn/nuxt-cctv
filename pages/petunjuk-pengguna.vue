@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+definePageMeta({
+  middleware: 'auth'
+})
 const curId = ref(1);
 const petunjukPengguna = [
 	{

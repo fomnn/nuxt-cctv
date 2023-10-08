@@ -1,3 +1,33 @@
+<script lang="ts" setup>
+definePageMeta({
+  middleware: 'auth'
+})
+
+const pilihLokasi = ref(false)
+const pilihWaktu = ref(false)
+const pilihTanggal = ref(false)
+
+const gantiPilihan = (pilihan: string) => {
+  switch (pilihan) {
+    case "lokasi":
+      pilihLokasi.value = !pilihLokasi.value
+      pilihWaktu.value = false 
+      pilihTanggal.value = false 
+      break
+    case "waktu":
+      pilihWaktu.value = !pilihWaktu.value
+      pilihLokasi.value = false 
+      pilihTanggal.value = false 
+      break
+    case "tanggal":
+      pilihTanggal.value = !pilihTanggal.value
+      pilihWaktu.value = false 
+      pilihLokasi.value = false 
+      break
+  }
+}
+</script>
+
 <template>
   <div
     class=" w-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-between py-10 relative overflow-x-hidden">
@@ -84,29 +114,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-const pilihLokasi = ref(false)
-const pilihWaktu = ref(false)
-const pilihTanggal = ref(false)
-
-const gantiPilihan = (pilihan: string) => {
-  switch (pilihan) {
-    case "lokasi":
-      pilihLokasi.value = !pilihLokasi.value
-      pilihWaktu.value = false 
-      pilihTanggal.value = false 
-      break
-    case "waktu":
-      pilihWaktu.value = !pilihWaktu.value
-      pilihLokasi.value = false 
-      pilihTanggal.value = false 
-      break
-    case "tanggal":
-      pilihTanggal.value = !pilihTanggal.value
-      pilihWaktu.value = false 
-      pilihLokasi.value = false 
-      break
-  }
-}
-</script>

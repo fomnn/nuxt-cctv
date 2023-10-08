@@ -1,9 +1,14 @@
 <script lang="ts" setup>
+definePageMeta({
+  middleware: 'auth'
+})
 const user = useSupabaseUser()
 
 const pencarian = ref("")
 
 console.log(user)
+
+
 </script>
 
 <template>
