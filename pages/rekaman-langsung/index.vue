@@ -1,3 +1,19 @@
+<script setup>
+
+const supabase = useSupabaseClient();
+
+const allLantai = async () => {
+  const { data, error } = await supabase.from('lantai').select('*').order('id', { ascending: true });
+  if (error) {
+    console.error(error);
+    return null;
+  }
+  return data;
+}
+const semuaLantai = await allLantai();
+console.log(semuaLantai);
+</script>
+
 <template>
   <div
     class=" w-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-between py-10 relative overflow-x-hidden">
@@ -13,25 +29,20 @@
         <h2>Rekaman Langsung</h2>
       </div>
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
-        <NuxtLink to="/rekaman-langsung/lantai-1" 
+        <NuxtLink v-for="lantai of semuaLantai" :to="'/rekaman-langsung/' + lantai.path"
           class="flex items-center justify-between bg-white px-5 py-3 rounded-full"
-          v-for="i in 9">
+          :key="lantai.id">
           <div class="flex items-center gap-2 text-lg">
             <div
               class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
               <Icon name="ic:twotone-location-on" />
             </div>
-            <p>Basement</p>
+            <p>{{ lantai.lantai }}</p>
           </div>
           <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
-        </NuxtLink>
+</NuxtLink>
+
       </div>
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-</script>
-
-<style scoped>
-</style>
