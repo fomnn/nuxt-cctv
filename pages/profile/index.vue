@@ -1,3 +1,28 @@
+<script lang="ts" setup>
+definePageMeta({
+  middleware: 'auth'
+})
+
+const supabase = useSupabaseClient();
+const user = useSupabaseUser();
+const router = useRouter();
+
+const signOut = async () => {
+    try {
+        const { error } = await supabase.auth.signOut()
+        if (error) throw error;
+        router.push('/')
+    } catch (error) {
+        alert((error as Error).message)
+    }
+}
+
+const curUser = computed(() => {
+    return user.value?.user_metadata
+})
+console.log(curUser.value)
+</script>
+
 <template>
   <div
     class="w-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-between py-10 relative overflow-x-hidden">
@@ -22,9 +47,9 @@
           <div class="flex flex-col items-center gap-4">
             <div class="h-28 w-28 bg-slate-400 rounded-full"></div>
             <div class="flex flex-col gap-1 items-center">
-              <h2 class="text-lg font-semibold">Andi Zhagyta Amalia Azrika</h2>
-              <p>zhagyta@gmail.com</p>
-              <p>0821232382983923</p>
+              <h2 class="text-lg font-semibold">{{ curUser!.nama_lengkap }}</h2>
+              <p>{{ user!.email }}</p>
+              <p>{{ curUser!.nim }}</p>
             </div>
           </div>
           <div class="flex flex-col gap-3 w-full">
@@ -79,26 +104,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-definePageMeta({
-  middleware: 'auth'
-})
-
-const supabase = useSupabaseClient();
-const router = useRouter();
-
-const signOut = async () => {
-    try {
-        const { error } = await supabase.auth.signOut()
-        if (error) throw error;
-        router.push('/')
-    } catch (error) {
-        alert((error as Error).message)
-    }
-}
-
-</script>
-
-<style scoped>
-</style>
