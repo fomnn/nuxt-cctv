@@ -1,4 +1,10 @@
 <script lang="ts" setup>
+definePageMeta({
+  middleware: [
+    'already-auth'
+  ]
+})
+
 
 const supabase = useSupabaseClient();
 const router = useRouter();
