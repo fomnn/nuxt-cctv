@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-center">
+  <div @click="toLogin" class="cursor-pointer w-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-center">
     <div class="bg-white flex flex-col items-center w-8/12 rounded-3xl py-6 gap-3">
       <!-- <LogoTult1Logo /> -->
       <NuxtImg src="/img/tult2.png" width="150px" />
@@ -11,9 +11,12 @@
 
 <script lang="ts" setup>
 const router = useRouter();
-setTimeout(() => {
-  router.push("/auth/login")
-}, 5000);
+const user = useSupabaseUser();
+
+const toLogin = () => {
+  router.push('/auth/login');
+}
+console.log(user.value?.id)
 </script>
 
 

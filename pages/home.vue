@@ -1,5 +1,9 @@
 <script lang="ts" setup>
+const user = useSupabaseUser()
+
 const pencarian = ref("")
+
+console.log(user)
 </script>
 
 <template>
