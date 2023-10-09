@@ -7,9 +7,9 @@
     </div>
     <div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col ">
       <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
-        <div class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
-          <Icon name="typcn:arrow-back" class ="" />
-        </div>
+        <NuxtLink to="/home" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
+					<Icon name="typcn:arrow-back" class="" />
+				</NuxtLink>
         <h2>Tempat Sampah</h2>
       </div>
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center gap-8">
@@ -36,6 +36,9 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+  middleware: 'auth'
+})
 </script>
 
 <style scoped>

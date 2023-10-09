@@ -85,7 +85,9 @@
 </template>
 
 <script lang="ts" setup>
-
+definePageMeta({
+  middleware: 'auth'
+})
 const checked = ref(false)
 </script>
 

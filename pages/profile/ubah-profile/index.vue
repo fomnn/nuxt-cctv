@@ -1,3 +1,34 @@
+<script lang="ts" setup>
+
+definePageMeta({
+  middleware: 'auth'
+})
+
+const supabase = useSupabaseClient();
+const user = useSupabaseUser();
+
+const full_name = ref(user.value?.user_metadata.nama_lengkap);
+const email = ref(user.value?.email);
+const nim = ref(user.value?.user_metadata.nim);
+
+const updateUser = async () => {
+  try {
+    const { data, error } = await supabase.auth.updateUser({
+      email: email.value,
+      data: {
+        nama_lengkap: full_name.value,
+        nim: nim.value,
+      }
+    })
+
+    console.log(data);
+    if (error) throw error;
+  } catch (error) {
+    console.log(error);
+  }
+}
+</script>
+
 <template>
   <div
     class="w-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-between py-10 relative overflow-x-hidden">
@@ -8,27 +39,7 @@
     <div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col justify-end">
 
       <!-- <div class="mask-circle-out"></div> -->
-      <div class="bg-white fixed bottom-0 w-full flex justify-between px-20 py-3 rounded-tr-xl">
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="ic:round-home" class="text-3xl" />
-          <p>Utama</p>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="material-symbols:notifications" class="text-3xl" />
-          <p>Notifikasi</p>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="ri:settings-4-fill" class="text-3xl" />
-          <p>Pengaturan</p>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
-        <div class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
-          <Icon name="typcn:arrow-back" class="" />
-        </div>
-        <h2>Profile</h2>
-      </div>
+      <BottomNavigation />
 
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center">
         <div class="flex items-center justify-between px-5 py-2 rounded-full w-full bg-gradient-to-br from-purple-950 to-rose-700">
@@ -42,13 +53,13 @@
           <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
         </div>
         <div class="bg-white w-10/12 flex flex-col px-4 py-3 rounded-b-lg">
-          <form class="flex flex-col gap-16">
+          <form @submit.prevent="updateUser" class="flex flex-col gap-16">
             <div class="flex flex-col gap-4">
               <label>
                 <p class="font-semibold">Nama</p>
                 <div class="flex border-b border-stone-700 items-center">
                   <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
-                  <Input class="w-full focus:outline-none" />
+                  <input v-model="full_name" class="w-full focus:outline-none" />
                   <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
                 </div>
               </label>
@@ -56,15 +67,7 @@
                 <p class="font-semibold">Email</p>
                 <div class="flex border-b border-stone-700 items-center">
                   <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
-                  <Input class="w-full focus:outline-none" />
-                  <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
-                </div>
-              </label>
-              <label>
-                <p class="font-semibold">No Telpon</p>
-                <div class="flex border-b border-stone-700 items-center">
-                  <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
-                  <Input class="w-full focus:outline-none" />
+                  <input v-model="email" class="w-full focus:outline-none" />
                   <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
                 </div>
               </label>
@@ -72,7 +75,7 @@
                 <p class="font-semibold">NIM</p>
                 <div class="flex border-b border-stone-700 items-center">
                   <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
-                  <Input class="w-full focus:outline-none" />
+                  <input v-model="nim" class="w-full focus:outline-none" />
                   <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
                 </div>
               </label>
@@ -91,14 +94,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-</script>
-
-<style scoped>
-.mask-circle-out {
-  @apply bg-gray-400 absolute inset-0 opacity-70;
-  /* bg-gray-400 untuk background abu-abu, absolute dan inset-0 untuk posisi dan ukuran penuh */
-  mask-image: radial-gradient(circle at 50% -100%, transparent 20%, transparent 70%, black 70.1%);
-}
-</style>

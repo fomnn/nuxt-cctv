@@ -1,3 +1,9 @@
+<script setup>
+definePageMeta({
+  middleware: 'auth'
+})
+</script>
+
 <template>
   <div
     class=" w-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-between py-10 relative overflow-x-hidden">
@@ -40,8 +46,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-</script>
-
-<style scoped></style>
