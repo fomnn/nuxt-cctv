@@ -8,20 +8,7 @@
     <div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col justify-end">
 
       <!-- <div class="mask-circle-out"></div> -->
-      <div class="bg-white fixed bottom-0 w-full flex justify-between px-20 py-3 rounded-tr-xl">
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="ic:round-home" class="text-3xl" />
-          <p>Utama</p>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="material-symbols:notifications" class="text-3xl" />
-          <p>Notifikasi</p>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Icon name="ri:settings-4-fill" class="text-3xl" />
-          <p>Pengaturan</p>
-        </div>
-      </div>
+      <BottomNavigation />
 
       <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
         <div class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
@@ -50,7 +37,11 @@
         <div class="bg-white w-10/12 flex flex-col px-4 py-3 rounded-lg">
           <form class="flex flex-col gap-16">
             <div class="flex flex-col gap-4">
-              <div class="border-b border-stone-500" v-for="i in 3">
+              <div class="border-b border-stone-500">
+                <p class="font-semibold">English</p>
+                <p>Inggris (UK)</p>
+              </div>
+              <div class="border-b border-stone-500">
                 <p class="font-semibold">English</p>
                 <p>Inggris (UK)</p>
               </div>

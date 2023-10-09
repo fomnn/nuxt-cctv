@@ -5,18 +5,14 @@ definePageMeta({
   ]
 })
 
-
 const supabase = useSupabaseClient();
 const router = useRouter();
 
-const email = ref('fathurrahmann.oman@gmail.com');
-const fullName = ref('asep');
-const noTelp = ref('082238382679');
-const nim = ref('6701213024');
-const password = ref('123123');
-const ulangiPassword = ref('123123');
-const errorMsg = ref('e');
-const successMsg = ref('s');
+const email = ref('');
+const fullName = ref('');
+const nim = ref('');
+const password = ref('');
+const ulangiPassword = ref('');
 
 const signUp = async () => {
   try {
@@ -26,18 +22,17 @@ const signUp = async () => {
       options: {
         data: {
           nama_lengkap: fullName.value,
-          no_telp: noTelp.value,
           nim: nim.value,
         }
       }
     })
     if (error) {
-      errorMsg.value = error.message
+      console.log(error);
     } else {
       router.push('/auth/login')
     }
   } catch (error) {
-    errorMsg.value = (error as Error).message
+    console.log(error);
   }
 }
 
@@ -76,11 +71,6 @@ const signUp = async () => {
                   class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
               </label>
               <label>
-                <p>No Telepon</p>
-                <input type="text" name="" id="" v-model="noTelp"
-                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
-              </label>
-              <label>
                 <p>NIM</p>
                 <input type="text" name="" id="" v-model="nim"
                   class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
@@ -98,8 +88,6 @@ const signUp = async () => {
             </div>
             <button class="bg-yellow-500 text-white py-2 px-12 rounded-3xl font-semibold w-fit">Daftar</button>
           </form>
-          <p class="text-green-400">{{ successMsg }}</p>
-          <p class="text-red-500">{{ errorMsg }}</p>
         </div>
       </div>
     </div>
