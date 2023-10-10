@@ -12,6 +12,8 @@ const router = useRouter();
 const email = ref('');
 const password = ref('');
 
+const showPassword = ref(false);
+
 const signIn = async () => {
   try {
     const { error } = await supabase.auth.signInWithPassword({
@@ -50,8 +52,12 @@ const signIn = async () => {
             class="w-[35px] h-[35px] bg-gradient-to-br from-purple-950 to-rose-700 rounded-full flex items-center justify-center">
             <IconPassword />
           </div>
-          <input type="text" v-model="password" class="bg-transparent focus:ring-0 w-full border-0"
+          <input :type="showPassword? 'text':'password'" v-model="password" class="bg-transparent focus:ring-0 w-full border-0"
             placeholder="Kata Sandi">
+            <button type="button" @click="showPassword = !showPassword" class="px-2">
+              <Icon v-if="showPassword" name="eva:eye-outline" class="text-gray-700 text-2xl" />
+              <Icon v-else name="eva:eye-off-outline" class="text-gray-700 text-2xl" />
+            </button>
         </label>
         <button class="bg-yellow-500 text-white py-2 px-10 rounded-3xl font-semibold">Masuk</button>
         <NuxtLink to="#" class="text-white">Lupa kata sandi?</NuxtLink>
