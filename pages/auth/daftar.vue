@@ -17,7 +17,14 @@ const ulangiPassword = ref('');
 const showPassword = ref(false);
 const showKonfPassword = ref(false);
 
+const errorMsd = ref('');
+
 const signUp = async () => {
+  if (password.value !== ulangiPassword.value) {
+    errorMsd.value = 'Password tidak sama';
+    return;
+  }
+
   try {
     const { data, error } = await supabase.auth.signUp({
       email: email.value,
@@ -100,6 +107,7 @@ const signUp = async () => {
                   </button>
                 </div>
               </label>
+              <p class="text-red-600">{{ errorMsd }}</p>
             </div>
             <button class="bg-yellow-500 text-white py-2 px-12 rounded-3xl font-semibold w-fit">Daftar</button>
           </form>
