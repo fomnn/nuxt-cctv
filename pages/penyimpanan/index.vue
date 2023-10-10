@@ -4,6 +4,7 @@ definePageMeta({
 })
 
 const supabase = useSupabaseClient();
+const router = useRouter();
 
 const allLantai = async () => {
   const { data, error } = await supabase.from('lantai').select('*').order('id', { ascending: true });
@@ -162,6 +163,18 @@ function formatDate(tanggal) {
 
   return `${dayName}, ${dateNum} ${monthName} ${year}`;
 }
+
+const cari = () => {
+  console.log(curLokasi.value);
+  console.log(curWaktu.value);
+  console.log(tanggalTerpilih.value);
+
+  if (curLokasi.value == "Pilih Lokasi" || curWaktu.value == "Pilih Waktu" || curTanggal.value == "Pilih Tanggal") {
+    alert("Pilih lokasi, waktu, dan tanggal terlebih dahulu");
+  } else {
+    router.push(`/penyimpanan/${curLokasi.value}/${curWaktu.value}/${tanggalTerpilih.value}`);
+  }
+}
 </script>
 
 <template>
@@ -247,7 +260,7 @@ function formatDate(tanggal) {
             </div>
           </div>
         </div>
-        <button class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md w-fit">Cari</button>
+        <button @click="cari" class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md w-fit">Cari</button>
       </div>
     </div>
   </div>

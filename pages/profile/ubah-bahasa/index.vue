@@ -18,33 +18,23 @@
       </div>
 
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center gap-3">
-        <div class="flex items-center justify-between px-5 py-2 rounded-full w-full bg-gradient-to-br from-purple-950 to-rose-700">
+        <div
+          class="flex items-center justify-between px-5 py-2 rounded-full w-full bg-gradient-to-br from-purple-950 to-rose-700">
           <div class="flex items-center gap-2 text-lg">
-            <div
-              class="bg-white w-6 h-6 flex items-center justify-center rounded-full text-white">
-              <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
+            <div class="bg-white w-6 h-6 flex items-center justify-center rounded-full text-white">
+              <Icon name="material-symbols:edit-rounded" class="text-purple-950" />
             </div>
             <p class="text-white">Ubah Profile</p>
           </div>
           <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
         </div>
-        <div class="flex items-center w-10/12 px-3 py-1 bg-white rounded-full">
-          <Input class="focus:outline-none w-full bg-transparent" placeholder="Cari Bahasa" />
-          <div class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 rounded-full flex items-center justify-center">
-            <Icon name="ph:magnifying-glass-bold" class=" text-white" />
-          </div>
-        </div>
         <div class="bg-white w-10/12 flex flex-col px-4 py-3 rounded-lg">
           <form class="flex flex-col gap-16">
             <div class="flex flex-col gap-4">
-              <div class="border-b border-stone-500">
-                <p class="font-semibold">English</p>
-                <p>Inggris (UK)</p>
-              </div>
-              <div class="border-b border-stone-500">
-                <p class="font-semibold">English</p>
-                <p>Inggris (UK)</p>
-              </div>
+              <select name="" id="" class="rounded-lg">
+                <option value="">Bahasa Indonesia</option>
+                <option value="">English</option>
+              </select>
             </div>
             <div class="flex-1 flex flex-col items-center gap-6">
               <button class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md flex items-center gap-2">
@@ -73,6 +63,7 @@ definePageMeta({
   /* bg-gray-400 untuk background abu-abu, absolute dan inset-0 untuk posisi dan ukuran penuh */
   mask-image: radial-gradient(circle at 50% -100%, transparent 20%, transparent 70%, black 70.1%);
 }
+
 .no-outline:focus {
   outline: none;
 }

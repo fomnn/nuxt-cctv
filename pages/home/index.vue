@@ -2,13 +2,12 @@
 definePageMeta({
   middleware: 'auth'
 })
+useHead({
+  title: 'Cctv'
+})
 const user = useSupabaseUser()
 
 const pencarian = ref("")
-
-console.log(user)
-
-
 </script>
 
 <template>
@@ -22,7 +21,7 @@ console.log(user)
 
       <BottomNavigation />
 
-      <div class="flex flex-col min-h-screen gap-3 px-10 pt-10 z-10">
+      <div class="flex flex-col min-h-screen gap-6 px-10 pt-10 z-10">
         <div class="flex gap-4 items-center">
           <div class="w-20 h-20 bg-slate-500 rounded-full"></div>
           <div class="flex flex-col text-white">

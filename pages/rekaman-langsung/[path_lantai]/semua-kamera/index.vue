@@ -1,4 +1,3 @@
-
 <script setup>
 
 definePageMeta({
@@ -19,18 +18,17 @@ const curLantai = async () => {
 }
 const lantai = await curLantai();
 
-const curKamera = async () => {
-  const { data, error } = await supabase.from('kamera').select('kamera').eq('id', route.params.path_kamera);
+const allCam = async () => {
+  const { data, error } = await supabase.from('kamera').select('*').eq('lantai_id', route.params.path_lantai);
   if (error) {
     console.error(error);
     return null;
   }
   return data;
 }
-const kamera = await curKamera();
+const semuaCam = await allCam();
 
-console.log(kamera[0]);
-console.log(lantai[0]);
+console.log(semuaCam);
 </script>
 
 <template>
@@ -50,14 +48,15 @@ console.log(lantai[0]);
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
         <div class="bg-white flex flex-col items-center py-6 rounded-lg px-6 gap-4">
           <div class="flex flex-col items-center">
-            <div class="bg-gradient-to-br from-purple-950 to-rose-700 w-7 h-7 flex items-center justify-center rounded-full text-white">
+            <div
+              class="bg-gradient-to-br from-purple-950 to-rose-700 w-7 h-7 flex items-center justify-center rounded-full text-white">
               <Icon name="mdi:cctv" />
             </div>
-            <h2 class="text-xl font-semibold">{{ kamera[0].kamera }}</h2>
-            <p class="text-lg">{{ lantai[0].lantai }}</p>
+            <h2 class="text-xl font-semibold">{{ lantai[0].lantai }}</h2>
+            <!-- <p class="text-lg">{{ lantai[0].lantai }}</p> -->
           </div>
           <div class="flex flex-col w-full gap-2">
-            <NuxtLink to="/rekaman-langsung/lantai-1/semua-kamera/tult-1" class="bg-slate-400 w-full h-28 rounded-md">
+            <NuxtLink to="/rekaman-langsung/lantai-1/semua-kamera/tult-1" class="bg-slate-400 w-full h-28 rounded-md" v-for="i in semuaCam">
               kamera
             </NuxtLink>
           </div>
