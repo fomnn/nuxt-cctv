@@ -14,7 +14,17 @@ const nim = ref('');
 const password = ref('');
 const ulangiPassword = ref('');
 
+const showPassword = ref(false);
+const showKonfPassword = ref(false);
+
+const errorMsd = ref('');
+
 const signUp = async () => {
+  if (password.value !== ulangiPassword.value) {
+    errorMsd.value = 'Password tidak sama';
+    return;
+  }
+
   try {
     const { data, error } = await supabase.auth.signUp({
       email: email.value,
@@ -57,34 +67,47 @@ const signUp = async () => {
           <p>Buat</p>
           <p>Akun Baru</p>
         </div>
-        <div class="w-full h-full bg-slate-100/40 rounded-t-[3rem] px-10 py-5">
+        <div class="w-full h-full bg-white/60 rounded-t-[3rem] px-10 py-5">
           <form @submit.prevent="signUp" class="flex flex-col gap-14 items-center">
             <div class="flex flex-col gap-2 w-full">
               <label>
                 <p>Nama</p>
                 <input type="text" name="" id="" v-model="fullName"
-                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                  class="bg-transparent focus:outline-none active:ring-0 border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>Email</p>
                 <input type="text" name="" id="" v-model="email"
-                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                  class="bg-transparent focus:outline-none active:ring-0 border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>NIM</p>
                 <input type="text" name="" id="" v-model="nim"
-                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                  class="bg-transparent focus:outline-none active:ring-0 border-b border-stone-600 border-0 w-full">
               </label>
               <label>
                 <p>Kata sandi</p>
-                <input type="text" name="" id="" v-model="password"
-                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <div class="flex border-b border-stone-600 border-0">
+                  <input :type="showPassword? 'text':'password'" name="" id="" v-model="password"
+                    class="bg-transparent focus:outline-none active:ring-0 border-0 w-full">
+                  <button type="button" @click="showPassword = !showPassword" class="px-2">
+                    <Icon v-if="showPassword" name="eva:eye-outline" class="text-gray-700 text-2xl" />
+                    <Icon v-else name="eva:eye-off-outline" class="text-gray-700 text-2xl" />
+                  </button>
+                </div>
               </label>
               <label>
                 <p>Ulangi Kata Sandi</p>
-                <input type="text" name="" id="" v-model="ulangiPassword"
-                  class="bg-transparent focus:outline-none active:outline-none border-b border-stone-600 border-0 w-full">
+                <div class="flex border-b border-stone-600 border-0">
+                  <input :type="showKonfPassword? 'text':'password'" name="" id="" v-model="ulangiPassword"
+                    class="bg-transparent focus:outline-none active:ring-0 border-0 w-full">
+                  <button type="button" @click="showKonfPassword = !showKonfPassword" class="px-2">
+                    <Icon v-if="showKonfPassword" name="eva:eye-outline" class="text-gray-700 text-2xl" />
+                    <Icon v-else name="eva:eye-off-outline" class="text-gray-700 text-2xl" />
+                  </button>
+                </div>
               </label>
+              <p class="text-red-600">{{ errorMsd }}</p>
             </div>
             <button class="bg-yellow-500 text-white py-2 px-12 rounded-3xl font-semibold w-fit">Daftar</button>
           </form>
