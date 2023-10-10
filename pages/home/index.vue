@@ -26,7 +26,7 @@ const pencarian = ref("")
           <div class="w-20 h-20 bg-slate-500 rounded-full"></div>
           <div class="flex flex-col text-white">
             <h1 class="text-2xl font-medium">Selamat Datang,</h1>
-            <p class="">Andi Zhagyta Amalia Azrika !</p>
+            <p class="">{{ user?.user_metadata.nama_lengkap }}</p>
             <NuxtLink to="/profile" class="w-fit bg-orange-400 px-8 py-1 my-2 rounded-full">Profil</NuxtLink>
           </div>
         </div>
