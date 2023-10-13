@@ -2,10 +2,9 @@
 definePageMeta({
   middleware: 'auth'
 })
-
 const router = useRouter();
 
-const checked = ref(false)
+const checked = ref(false);
 </script>
 
 <template>
@@ -40,7 +39,8 @@ const checked = ref(false)
             <div class="flex flex-col gap-4">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <p>Notifikasi Suara</p>
+                  <Icon name="solar:face-scan-square-broken" class="text-stone-800 text-xl" />
+                  <p>Face ID Login</p>
                 </div>
                 <label class="relative inline-flex items-center cursor-pointer">
                   <input type="checkbox" value="" class="sr-only peer">
@@ -51,7 +51,8 @@ const checked = ref(false)
               </div>
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <p>Notifikasi Getar</p>
+                  <Icon name="carbon:fingerprint-recognition" class="text-stone-800 text-xl" />
+                  <p>Biometric Login</p>
                 </div>
                 <label class="relative inline-flex items-center cursor-pointer">
                   <input type="checkbox" value="" class="sr-only peer">
