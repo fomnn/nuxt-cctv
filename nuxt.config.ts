@@ -20,6 +20,24 @@ export default defineNuxtConfig({
     }
   },
   i18n: {
-    
+    lazy: true,
+    langDir: 'lang/',
+    strategy: 'prefix_except_default',
+    locales: [
+      {
+        code: 'en-US',
+        iso: 'en-US',
+        name: 'English',
+        file: 'en-US.json'
+      },
+      {
+        code: 'id-ID',
+        iso: 'id-ID',
+        name: 'Indonesia',
+        file: 'id-ID.json'
+      }
+    ],
+    defaultLocale: 'id-ID',
+    vueI18n: '~/lang/vue-i18n.js',
   }
 })
