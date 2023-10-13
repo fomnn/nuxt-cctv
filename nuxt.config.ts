@@ -1,12 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     'nuxt-icon',
     '@vueuse/nuxt',
     '@vexip-ui/nuxt',
-    '@nuxtjs/supabase'
+    '@nuxtjs/supabase',
+    '@nuxtjs/i18n',
   ],
   supabase: {
     redirect: false
@@ -16,5 +18,26 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
     }
+  },
+  i18n: {
+    lazy: true,
+    langDir: 'lang/',
+    strategy: 'prefix_except_default',
+    locales: [
+      {
+        code: 'en-US',
+        iso: 'en-US',
+        name: 'English',
+        file: 'en-US.json'
+      },
+      {
+        code: 'id-ID',
+        iso: 'id-ID',
+        name: 'Indonesia',
+        file: 'id-ID.json'
+      }
+    ],
+    defaultLocale: 'id-ID',
+    vueI18n: '~/lang/vue-i18n.js',
   }
 })

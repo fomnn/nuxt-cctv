@@ -14,7 +14,10 @@ const password = ref('');
 
 const showPassword = ref(false);
 
+const isLoading = ref(false)
+
 const signIn = async () => {
+  isLoading.value = true
   try {
     const { error } = await supabase.auth.signInWithPassword({
       email: email.value,
@@ -25,6 +28,7 @@ const signIn = async () => {
   } catch (error) {
     alert((error as Error).message)
   }
+  isLoading.value = false
 }
 </script>
 
@@ -59,7 +63,11 @@ const signIn = async () => {
               <Icon v-else name="eva:eye-off-outline" class="text-gray-700 text-2xl" />
             </button>
         </label>
-        <button class="bg-yellow-500 text-white py-2 px-10 rounded-3xl font-semibold">Masuk</button>
+        <button class="bg-yellow-500 text-white py-2 px-6 flex items-center gap-2 rounded-3xl font-semibold w-fit">
+              Masuk
+              <Icon v-if="isLoading" name="line-md:loading-loop" />
+            </button>
+
         <NuxtLink to="#" class="text-white">Lupa kata sandi?</NuxtLink>
       </form>
     </div>
