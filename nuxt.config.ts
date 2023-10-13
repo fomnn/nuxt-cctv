@@ -38,6 +38,5 @@ export default defineNuxtConfig({
       }
     ],
     defaultLocale: 'id-ID',
-    vueI18n: '~/lang/vue-i18n.js',
   }
 })
