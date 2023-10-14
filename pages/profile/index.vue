@@ -6,6 +6,7 @@ definePageMeta({
 const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 const router = useRouter();
+const localPath = useLocalePath();
 
 const signOut = async () => {
     try {
@@ -36,10 +37,10 @@ console.log(curUser.value)
       <BottomNavigation />
 
       <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
-        <NuxtLink to="/home" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
+        <NuxtLink :to="localPath('/home')" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
           <Icon name="typcn:arrow-back" class="" />
         </NuxtLink>
-        <h2>Profile</h2>
+        <h2>{{$t('profil')}}</h2>
       </div>
 
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center gap-6">
@@ -47,9 +48,9 @@ console.log(curUser.value)
           <div class="flex flex-col items-center gap-4">
             <div class="h-28 w-28 bg-slate-400 rounded-full"></div>
             <div class="flex flex-col gap-1 items-center">
-              <h2 class="text-lg font-semibold">{{ curUser!.nama_lengkap }}</h2>
-              <p>{{ user!.email }}</p>
-              <p>{{ curUser!.nim }}</p>
+              <h2 class="text-lg font-semibold">{{ curUser?.nama_lengkap }}</h2>
+              <p>{{ user?.email }}</p>
+              <p>{{ curUser?.nim }}</p>
             </div>
           </div>
           <div class="flex flex-col gap-3 w-full">
@@ -59,17 +60,17 @@ console.log(curUser.value)
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
                   <Icon name="material-symbols:edit-rounded" />
                 </div>
-                <p>Ubah Profile</p>
+                <p>{{ $t('ubah_profil') }}</p>
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
             </NuxtLink>
-            <NuxtLink to="/profile/ubah-bahasa" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
+            <NuxtLink :to="localPath('/profile/ubah-bahasa')" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
               <div class="flex items-center gap-2 text-lg">
                 <div
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
                   <Icon name="mdi:earth" />
                 </div>
-                <p>Ubah Bahasa</p>
+                <p>{{$t('ubah_bahasa')}}</p>
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
             </NuxtLink>
@@ -79,7 +80,7 @@ console.log(curUser.value)
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
                   <Icon name="streamline:interface-setting-wrench-crescent-tool-construction-tools-wrench-setting-edit-adjust" />
                 </div>
-                <p>Pengaturan Lainnya</p>
+                <p>{{$t('pengaturan_lainnya')}}</p>
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
             </NuxtLink>
@@ -89,7 +90,7 @@ console.log(curUser.value)
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
                   <Icon name="jam:shield-half" />
                 </div>
-                <p>Keamanan Akun</p>
+                <p>{{ $t('keamanan_akun') }}</p>
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
             </NuxtLink>
@@ -97,7 +98,7 @@ console.log(curUser.value)
         </div>
         <button @click="signOut" class="flex gap-3 items-center text-white bg-red-600 w-fit px-4 py-1 rounded-full">
           <Icon name="octicon:sign-out-16" class="rotate-180" />
-          <p>Keluar</p>
+          <p>{{ $t('keluar') }}</p>
         </button>
       </div>
 
