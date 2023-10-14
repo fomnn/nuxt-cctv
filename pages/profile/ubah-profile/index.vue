@@ -48,7 +48,7 @@ const updateUser = async () => {
               class="bg-white w-6 h-6 flex items-center justify-center rounded-full text-white">
               <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
             </div>
-            <p class="text-white">Ubah Profile</p>
+            <p class="text-white">{{ $t('ubah_profil') }}</p>
           </div>
           <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
         </div>
@@ -56,7 +56,7 @@ const updateUser = async () => {
           <form @submit.prevent="updateUser" class="flex flex-col gap-16">
             <div class="flex flex-col gap-4">
               <label>
-                <p class="font-semibold">Nama</p>
+                <p class="font-semibold">{{ $t('nama_lengkap') }}</p>
                 <div class="flex border-b border-stone-700 items-center">
                   <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
                   <input v-model="full_name" class="w-full focus:outline-none" />
@@ -64,7 +64,7 @@ const updateUser = async () => {
                 </div>
               </label>
               <label>
-                <p class="font-semibold">Email</p>
+                <p class="font-semibold">{{ $t('email') }}</p>
                 <div class="flex border-b border-stone-700 items-center">
                   <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
                   <input v-model="email" class="w-full focus:outline-none" />
@@ -72,7 +72,7 @@ const updateUser = async () => {
                 </div>
               </label>
               <label>
-                <p class="font-semibold">NIM</p>
+                <p class="font-semibold">{{ $t('nim') }}</p>
                 <div class="flex border-b border-stone-700 items-center">
                   <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
                   <input v-model="nim" class="w-full focus:outline-none" />

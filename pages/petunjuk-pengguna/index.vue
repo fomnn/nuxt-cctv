@@ -7,6 +7,7 @@ const petunjukPengguna = [
 	{
 		id: 1,
 		imgLink: 'img/server.png',
+		// content: 'Data rekaman akan otomatis tersimpan kedalam server. Pengguna  bisa mengakses seluruh file rekaman tersebut dengan masuk ke menu “Penyimpanan”'
 		content: 'Data rekaman akan otomatis tersimpan kedalam server. Pengguna  bisa mengakses seluruh file rekaman tersebut dengan masuk ke menu “Penyimpanan”'
 	},
 	{

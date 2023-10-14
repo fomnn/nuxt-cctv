@@ -6,8 +6,9 @@ useHead({
   title: 'Cctv'
 })
 const user = useSupabaseUser()
-
+const localPath = useLocalePath()
 const pencarian = ref("")
+
 </script>
 
 <template>
@@ -27,31 +28,31 @@ const pencarian = ref("")
           <div class="flex flex-col text-white">
             <h1 class="text-2xl font-medium">{{ $t('welcome') }}</h1>
             <p class="">{{ user?.user_metadata.nama_lengkap }}</p>
-            <NuxtLink to="/profile" class="w-fit bg-orange-400 px-8 py-1 my-2 rounded-full">Profil</NuxtLink>
+            <NuxtLink :to="localPath('/profile')" class="w-fit bg-orange-400 px-8 py-1 my-2 rounded-full">{{ $t('profil') }}</NuxtLink>
           </div>
         </div>
         <div class="flex justify-between items-center bg-white p-2 pl-5 rounded-3xl w-full">
-          <input type="text" class="focus:ring-0 w-full border-0" placeholder="Pencarian" id="" name="" v-model="pencarian">
+          <input type="text" class="focus:ring-0 w-full border-0" :placeholder="$t('pencarian')" id="" name="" v-model="pencarian">
           <div class="w-7 h-7 bg-gradient-to-br from-purple-950 to-rose-700 rounded-full flex justify-center items-center">
             <Icon name="ph:magnifying-glass-bold" class="text-white" />
           </div>
         </div>
         <div class="flex flex-col gap-4">
-          <NuxtLink to="/petunjuk-pengguna" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 bg-white text-2xl rounded-2xl shadow w-full hover:bg-stone-200 transition-colors duration-100 ease-in-out">
+          <NuxtLink :to="localPath('/petunjuk-pengguna')" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 bg-white text-2xl rounded-2xl shadow w-full hover:bg-stone-200 transition-colors duration-100 ease-in-out">
             <Icon name="material-symbols:file-copy-outline-sharp" class=" "/>
-            <p>Petunjuk Pengguna</p>
+            <p>{{ $t('petunjuk_pengguna') }}</p>
           </NuxtLink>
-          <NuxtLink to="/penyimpanan" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full hover:bg-stone-200 transition-colors duration-100 ease-in-out">
+          <NuxtLink :to="localPath('/penyimpanan')" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full hover:bg-stone-200 transition-colors duration-100 ease-in-out">
             <Icon name="material-symbols:folder-outline-sharp" class=" "/>
-            <p>Penyimpanan</p>
+            <p>{{ $t('penyimpanan') }}</p>
           </NuxtLink>
-          <NuxtLink to="/rekaman-langsung" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full hover:bg-stone-200 transition-colors duration-100 ease-in-out">
+          <NuxtLink :to="localPath('/rekaman-langsung')" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full hover:bg-stone-200 transition-colors duration-100 ease-in-out">
             <Icon name="bx:cctv" class=" "/>
-            <p>Rekaman Langsung</p>
+            <p>{{ $t('rekaman_langsung') }}</p>
           </NuxtLink>
-          <NuxtLink to="/tempat-sampah" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full hover:bg-stone-200 transition-colors duration-100 ease-in-out">
+          <NuxtLink :to="localPath('/tempat-sampah')" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full hover:bg-stone-200 transition-colors duration-100 ease-in-out">
             <Icon name="material-symbols:delete-outline-sharp" class=" "/>
-            <p>Tempat Sampah</p>
+            <p>{{ $t('tempat_sampah') }}</p>
           </NuxtLink>
         </div>
       </div>

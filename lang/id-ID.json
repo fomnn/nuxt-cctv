@@ -3,7 +3,7 @@
 
     "ubah_bahasa": "Ubah Bahasa",
     "ubah_profil": "Ubah Profil",
-    "penangaturan_lainnya": "Pengaturan Lainnya",
+    "pengaturan_lainnya": "Pengaturan Lainnya",
     "keamanan_akun": "Keamanan Akun",
 
     "profil": "Profil",
@@ -12,4 +12,17 @@
     "utama": "Utama",
     "notifikasi": "Notifikasi",
     "pengaturan": "Pengaturan",
+
+    "petunjuk_pengguna": "Petunjuk Pengguna",
+    "penyimpanan": "Penyimpanan",
+    "rekaman_langsung": "Rekaman Langsung",
+    "tempat_sampah": "Tempat Sampah",
+    "pencarian": "Pencarian",
+
+    "pilih_lokasi": "Pilih Lokasi",
+    "pilih_tanggal": "Pilih Tanggal",
+
+    "nama_lengkap": "Nama Lengkap",
+    "email": "Email",
+    "nim": "NIM",
 }

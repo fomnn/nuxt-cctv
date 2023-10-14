@@ -54,7 +54,7 @@ console.log(curUser.value)
             </div>
           </div>
           <div class="flex flex-col gap-3 w-full">
-            <NuxtLink to="/profile/ubah-profile" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
+            <NuxtLink :to="localPath('/profile/ubah-profile')" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
               <div class="flex items-center gap-2 text-lg">
                 <div
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
@@ -74,17 +74,17 @@ console.log(curUser.value)
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
             </NuxtLink>
-            <NuxtLink to="/profile/pengaturan-lainnya" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
+            <NuxtLink :to="localPath('/profile/pengaturan-lainnya')" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
               <div class="flex items-center gap-2 text-lg">
                 <div
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
                   <Icon name="streamline:interface-setting-wrench-crescent-tool-construction-tools-wrench-setting-edit-adjust" />
                 </div>
-                <p>{{$t('pengaturan_lainnya')}}</p>
+                <p>{{ $t('pengaturan_lainnya') }}</p>
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
             </NuxtLink>
-            <NuxtLink to="/profile/keamanan-akun" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
+            <NuxtLink :to="localPath('/profile/keamanan-akun')" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
               <div class="flex items-center gap-2 text-lg">
                 <div
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">

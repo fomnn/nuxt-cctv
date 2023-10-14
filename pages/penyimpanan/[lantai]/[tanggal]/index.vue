@@ -9,9 +9,9 @@ const route = useRoute();
 const supabase = useSupabaseClient();
 
 const curLantai = route.params.lantai;
-const curWaktu = route.params.waktu;
+const curTanggal = route.params.tanggal;
 console.log(curLantai);
-console.log(curWaktu);
+console.log(curTanggal);
 </script>
 
 <template>
@@ -23,10 +23,10 @@ console.log(curWaktu);
     </div>
     <div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col ">
       <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
-        <button @click="router.go(-1)" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
+        <NuxtLink @click="router.go(-1)" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
           <Icon name="typcn:arrow-back" class="" />
-        </button>
-        <h2></h2>
+        </NuxtLink>
+        <h2>Penyimpanan</h2>
       </div>
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
         <div class="bg-white flex flex-col items-center py-6 rounded-lg px-6 gap-4">
@@ -35,15 +35,13 @@ console.log(curWaktu);
               class="bg-gradient-to-br from-purple-950 to-rose-700 w-7 h-7 flex items-center justify-center rounded-full text-white">
               <Icon name="mdi:cctv" />
             </div>
-            <h2 class="text-xl font-semibold">Lantai 1</h2>
+            <h2 class="text-xl font-semibold">{{ curLantai }}</h2>
             <div class="flex gap-2">
-              <p>Semua Waktu</p>
-              <p>-</p>
-              <p>Semua Tanggal</p>
+              <p>{{ curTanggal }}</p>
             </div>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <NuxtLink class="bg-slate-400 w-full h-28 rounded-md" v-for="i in 5">
+            <NuxtLink to="#" class="bg-slate-400 w-full h-28 rounded-md" v-for="i in 5" :key="i">
               kamera
             </NuxtLink>
           </div>
