@@ -1,3 +1,15 @@
 {
-    "welcome": "Selamat Datang"
+    "welcome": "Selamat Datang",
+
+    "ubah_bahasa": "Ubah Bahasa",
+    "ubah_profil": "Ubah Profil",
+    "penangaturan_lainnya": "Pengaturan Lainnya",
+    "keamanan_akun": "Keamanan Akun",
+
+    "profil": "Profil",
+    "keluar": "Keluar",
+
+    "utama": "Utama",
+    "notifikasi": "Notifikasi",
+    "pengaturan": "Pengaturan",
 }
