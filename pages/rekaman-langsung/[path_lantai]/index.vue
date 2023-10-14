@@ -7,6 +7,7 @@ definePageMeta({
 const router = useRouter();
 const route = useRoute();
 const supabase = useSupabaseClient();
+const localPath = useLocalePath();
 
 const curLantai = async () => {
   const { data, error } = await supabase.from('lantai').select('*').eq('id', route.params.path_lantai);
@@ -45,7 +46,7 @@ console.log(semuaCam);
         <button @click="router.go(-1)" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
           <Icon name="typcn:arrow-back" class="" />
         </button>
-        <h2>Rekaman Langsung</h2>
+        <h2>{{ $t('rekaman_langsung') }}</h2>
       </div>
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
         <div class="bg-white flex flex-col items-center py-6 rounded-lg px-6 gap-4">
@@ -56,11 +57,11 @@ console.log(semuaCam);
             <h2 class="text-xl font-semibold">{{ lantai[0].lantai }}</h2>
           </div>
           <div class="grid grid-cols-3 w-full gap-2">
-            <NuxtLink :to="'/rekaman-langsung/'+route.params.path_lantai+'/semua-kamera'" class="flex flex-col items-center border border-slate-400 rounded-md col-span-3 px-1 py-2">
+            <NuxtLink :to="localPath('/rekaman-langsung/'+route.params.path_lantai+'/semua-kamera')" class="flex flex-col items-center border border-slate-400 rounded-md col-span-3 px-1 py-2">
               <Icon name="mdi:cctv" class="text-3xl" />
               <h3>All Camera</h3>
             </NuxtLink>
-            <NuxtLink :to="'/rekaman-langsung/'+route.params.path_lantai+'/'+kamera.id" class="flex flex-col items-center border border-slate-400 rounded-md px-1 py-2" v-for="kamera in semuaCam" :key="kamera.id">
+            <NuxtLink :to="localPath('/rekaman-langsung/'+route.params.path_lantai+'/'+kamera.id)" class="flex flex-col items-center border border-slate-400 rounded-md px-1 py-2" v-for="kamera in semuaCam" :key="kamera.id">
               <Icon name="mdi:cctv" class="text-3xl" /> 
               <h3>{{ kamera.kamera }}</h3>
             </NuxtLink>
