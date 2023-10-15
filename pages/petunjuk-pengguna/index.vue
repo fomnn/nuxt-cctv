@@ -54,7 +54,7 @@ const prevPetunjukPengguna = () => {
 				<NuxtLink to="/home" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
 					<Icon name="typcn:arrow-back" class="" />
 				</NuxtLink>
-				<h2>Petunjuk Pengguna</h2>
+				<h2>{{ $t('petunjuk_pengguna') }}</h2>
 			</div>
 			<div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 justify-between">
 				<div class="grid gap-6">

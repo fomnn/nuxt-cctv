@@ -31,7 +31,7 @@ console.log(curUser.value)
       class=" w-96 h-96 bg-gradient-to-br from-gray-800 to-cyan-300 rounded-full flex items-center justify-center absolute -right-52 -top-12">
       <div class="w-72 h-72 bg-gradient-to-br from-slate-900 to-indigo-500 rounded-full"></div>
     </div>
-    <div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col justify-end">
+    <div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col justify-end pb-16">
 
       <!-- <div class="mask-circle-out"></div> -->
       <BottomNavigation />
@@ -74,26 +74,7 @@ console.log(curUser.value)
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
             </NuxtLink>
-            <NuxtLink :to="localPath('/profile/pengaturan-lainnya')" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
-              <div class="flex items-center gap-2 text-lg">
-                <div
-                  class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
-                  <Icon name="streamline:interface-setting-wrench-crescent-tool-construction-tools-wrench-setting-edit-adjust" />
-                </div>
-                <p>{{ $t('pengaturan_lainnya') }}</p>
-              </div>
-              <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
-            </NuxtLink>
-            <NuxtLink :to="localPath('/profile/keamanan-akun')" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
-              <div class="flex items-center gap-2 text-lg">
-                <div
-                  class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
-                  <Icon name="jam:shield-half" />
-                </div>
-                <p>{{ $t('keamanan_akun') }}</p>
-              </div>
-              <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
-            </NuxtLink>
+            
           </div>
         </div>
         <button @click="signOut" class="flex gap-3 items-center text-white bg-red-600 w-fit px-4 py-1 rounded-full">
