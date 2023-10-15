@@ -25,18 +25,19 @@ export default defineNuxtConfig({
     strategy: 'prefix_except_default',
     locales: [
       {
+        code: 'id-ID',
+        iso: 'id-ID',
+        name: 'Indonesia',
+        file: 'id-ID.json'
+      },
+      {
         code: 'en-US',
         iso: 'en-US',
         name: 'English',
         file: 'en-US.json'
       },
-      {
-        code: 'id-ID',
-        iso: 'id-ID',
-        name: 'Indonesia',
-        file: 'id-ID.json'
-      }
     ],
     defaultLocale: 'id-ID',
+    
   }
 })

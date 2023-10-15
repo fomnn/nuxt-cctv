@@ -22,7 +22,7 @@ const pencarian = ref("")
 
       <BottomNavigation />
 
-      <div class="flex flex-col min-h-screen gap-6 px-10 pt-10 z-10">
+      <div class="flex flex-col min-h-screen gap-6 px-10 pt-10 z-10 pb-32">
         <div class="flex gap-4 items-center">
           <div class="w-20 h-20 bg-slate-500 rounded-full"></div>
           <div class="flex flex-col text-white">
