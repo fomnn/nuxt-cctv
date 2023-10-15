@@ -131,7 +131,7 @@ const cari = () => {
             </div>
           </div>
         </div>
-        <button @click="cari" class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md w-fit">Cari</button>
+        <button @click="cari" class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md w-fit">{{ $t('cari') }}</button>
       </div>
     </div>
   </div>
