@@ -67,10 +67,10 @@ const prevPetunjukPengguna = () => {
 				</div>
 				<div class="flex justify-between">
 					<button @click="prevPetunjukPengguna" v-if="curId > 1"
-						class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1.5 rounded-lg" >Kembali</button>
+						class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1.5 rounded-lg" >{{ $t('kembali') }}</button>
 					<div v-else></div>
 					<button @click="nextPetunjukPengguna" v-if="curId < petunjukPengguna.length"
-						class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1.5 rounded-lg">Lanjut</button>
+						class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1.5 rounded-lg">{{ $t('lanjut') }}</button>
 					<div v-else></div>
 				</div>
 			</div>
