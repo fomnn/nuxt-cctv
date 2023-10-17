@@ -12,6 +12,22 @@ const curLantai = route.params.lantai;
 const curTanggal = route.params.tanggal;
 console.log(curLantai);
 console.log(curTanggal);
+
+
+function formatDate(tanggal) {
+  const dateObj = new Date(tanggal);
+  const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+  const dayName = days[dateObj.getDay()];
+  const dateNum = dateObj.getDate();
+  const monthName = months[dateObj.getMonth()];
+  const year = dateObj.getFullYear();
+
+  return `${dayName}, ${dateNum} ${monthName} ${year}`;
+}
+
+const currTanggal = formatDate(curTanggal);
 </script>
 
 <template>
@@ -37,13 +53,16 @@ console.log(curTanggal);
             </div>
             <h2 class="text-xl font-semibold">{{ curLantai }}</h2>
             <div class="flex gap-2">
-              <p>{{ curTanggal }}</p>
+              <p>{{ currTanggal }}</p>
             </div>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <NuxtLink to="#" class="bg-slate-400 w-full h-28 rounded-md" v-for="i in 5" :key="i">
-              kamera
-            </NuxtLink>
+            <div class="flex gap-2" v-for="i in 5">
+              <NuxtLink to="#" class="bg-slate-400 w-full h-10 rounded-md flex items-center px-3" :key="i">
+                kamera - {{ i }}
+              </NuxtLink>
+              <button class="bg-red-600 rounded-lg px-4 text-white">hapus</button>
+            </div>
           </div>
         </div>
       </div>
