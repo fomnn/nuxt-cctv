@@ -19,17 +19,15 @@ const showKonfPassword = ref(false);
 
 const isLoading = ref(false)
 
-const errorMsd = ref('');
-
 const signUp = async () => {
   isLoading.value = true
   if (password.value !== ulangiPassword.value) {
-    errorMsd.value = 'Password tidak sama';
-    return;
+    alert('Password tidak sama')
+    return
   }
 
   try {
-    const { data, error } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email: email.value,
       password: password.value,
       options: {
@@ -40,7 +38,7 @@ const signUp = async () => {
       }
     })
     if (error) {
-      console.log(error);
+      
     } else {
       router.push('/auth/login')
     }
@@ -111,7 +109,6 @@ const signUp = async () => {
                   </button>
                 </div>
               </label>
-              <p class="text-red-600">{{ errorMsd }}</p>
             </div>
             <button class="bg-yellow-500 text-white py-2 px-6 flex items-center gap-2 rounded-3xl font-semibold w-fit">
               Daftar
