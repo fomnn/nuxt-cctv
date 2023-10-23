@@ -5,6 +5,7 @@ definePageMeta({
 
 const supabase = useSupabaseClient();
 const router = useRouter();
+const localPath = useLocalePath();
 
 const allLantai = async () => {
   const { data, error } = await supabase.from('lantai').select('*').order('id', { ascending: true });
@@ -28,12 +29,10 @@ const gantiPilihan = (pilihan) => {
   switch (pilihan) {
     case "lokasi":
       pilihLokasi.value = !pilihLokasi.value
-      pilihWaktu.value = false
       pilihTanggal.value = false
       break
     case "tanggal":
       pilihTanggal.value = !pilihTanggal.value
-      pilihWaktu.value = false
       pilihLokasi.value = false
       break
   }
@@ -80,10 +79,10 @@ const cari = () => {
     </div>
     <div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col ">
       <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
-        <NuxtLink to="/home" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
+        <NuxtLink :to="localPath('/home')" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
 					<Icon name="typcn:arrow-back" class="" />
 				</NuxtLink>
-        <h2>Penyimpanan</h2>
+        <h2>{{ $t('penyimpanan') }}</h2>
       </div>
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col gap-3 px-5 pt-6 pb-20 items-center">
 
@@ -95,7 +94,7 @@ const cari = () => {
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
                   <Icon name="ic:twotone-location-on" />
                 </div>
-                <p>{{ curLokasi }}</p>
+                <p>{{ (curLokasi == 'Pilih Lokasi')? $t('pilih_lokasi'): curLokasi }}</p>
               </div>
               <Icon name="ic:outline-keyboard-arrow-down" class="text-2xl text-orange-400" />
             </div>
@@ -119,7 +118,7 @@ const cari = () => {
                   class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
                   <Icon name="ic:twotone-location-on" />
                 </div>
-                <p>{{ curTanggal }}</p>
+                <p>{{ (curTanggal == 'Pilih Tanggal')? $t('pilih_tanggal'): curTanggal }}</p>
               </div>
               <Icon name="ic:outline-keyboard-arrow-down" class="text-2xl text-orange-400" />
             </div>
@@ -132,7 +131,7 @@ const cari = () => {
             </div>
           </div>
         </div>
-        <button @click="cari" class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md w-fit">Cari</button>
+        <button @click="cari" class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md w-fit">{{ $t('cari') }}</button>
       </div>
     </div>
   </div>

@@ -1,0 +1,34 @@
+{
+    "welcome": "Welcome",
+
+    "ubah_bahasa": "Change Language",
+    "ubah_profil": "Change Profile",
+    "pengaturan_lainnya": "Other Settings",
+    "keamanan_akun": "Account Security",
+
+    "profil": "Profile",
+    "keluar": "Logout",
+
+    "utama": "Main",
+    "notifikasi": "Notification",
+    "pengaturan": "Settings",
+
+    "petunjuk_pengguna": "Guide for Users",
+    "penyimpanan": "Storage",
+    "rekaman_langsung": "Live Recording",
+    "tempat_sampah": "Trash",
+    "pencarian": "Search",
+
+    "pilih_lokasi": "Select Location",
+    "pilih_tanggal": "Select Date",
+
+    "nama_lengkap": "Full Name",
+    "email": "Email",
+    "nim": "NIM",
+
+    "pulihkan": "Restore",
+    "cari": "Search",
+
+    "lanjut": "Next",
+    "kembali": "back"
+}

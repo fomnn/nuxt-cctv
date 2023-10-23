@@ -26,6 +26,8 @@ function formatDate(tanggal) {
 
   return `${dayName}, ${dateNum} ${monthName} ${year}`;
 }
+
+const currTanggal = formatDate(curTanggal);
 </script>
 
 <template>
@@ -37,9 +39,9 @@ function formatDate(tanggal) {
     </div>
     <div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col ">
       <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
-        <button @click="router.go(-1)" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
+        <NuxtLink @click="router.go(-1)" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
           <Icon name="typcn:arrow-back" class="" />
-        </button>
+        </NuxtLink>
         <h2>Penyimpanan</h2>
       </div>
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
@@ -50,16 +52,16 @@ function formatDate(tanggal) {
               <Icon name="mdi:cctv" />
             </div>
             <h2 class="text-xl font-semibold">{{ curLantai }}</h2>
-            <div class="">
-              <p>{{ formatDate(curTanggal) }}</p>
+            <div class="flex gap-2">
+              <p>{{ currTanggal }}</p>
             </div>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <div class="flex items-start gap-1" v-for="i in 5">
-              <NuxtLink class="bg-slate-400 w-full h-28 rounded-md">
-                kamera
+            <div class="flex gap-2" v-for="i in 5">
+              <NuxtLink to="#" class="bg-slate-400 w-full h-10 rounded-md flex items-center px-3" :key="i">
+                kamera - {{ i }}
               </NuxtLink>
-              <button class="bg-gradient-to-br from-purple-950 to-rose-700 px-4 py-1 rounded-lg text-white">Hapus</button>
+              <button class="bg-red-600 rounded-lg px-4 text-white">hapus</button>
             </div>
           </div>
         </div>

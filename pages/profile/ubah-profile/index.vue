@@ -11,7 +11,10 @@ const full_name = ref(user.value?.user_metadata.nama_lengkap);
 const email = ref(user.value?.email);
 const nim = ref(user.value?.user_metadata.nim);
 
+const isLoading = ref(false)
+
 const updateUser = async () => {
+  isLoading.value = true
   try {
     const { data, error } = await supabase.auth.updateUser({
       email: email.value,
@@ -26,6 +29,8 @@ const updateUser = async () => {
   } catch (error) {
     console.log(error);
   }
+  isLoading.value = false;
+  alert('Berhasil mengubah profil');
 }
 </script>
 
@@ -42,13 +47,13 @@ const updateUser = async () => {
       <BottomNavigation />
 
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center">
-        <div class="flex items-center justify-between px-5 py-2 rounded-full w-full bg-gradient-to-br from-purple-950 to-rose-700">
+        <div
+          class="flex items-center justify-between px-5 py-2 rounded-full w-full bg-gradient-to-br from-purple-950 to-rose-700">
           <div class="flex items-center gap-2 text-lg">
-            <div
-              class="bg-white w-6 h-6 flex items-center justify-center rounded-full text-white">
-              <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
+            <div class="bg-white w-6 h-6 flex items-center justify-center rounded-full text-white">
+              <Icon name="material-symbols:edit-rounded" class="text-purple-950" />
             </div>
-            <p class="text-white">Ubah Profile</p>
+            <p class="text-white">{{ $t('ubah_profil') }}</p>
           </div>
           <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
         </div>
@@ -56,27 +61,27 @@ const updateUser = async () => {
           <form @submit.prevent="updateUser" class="flex flex-col gap-16">
             <div class="flex flex-col gap-4">
               <label>
-                <p class="font-semibold">Nama</p>
+                <p class="font-semibold">{{ $t('nama_lengkap') }}</p>
                 <div class="flex border-b border-stone-700 items-center">
                   <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
                   <input v-model="full_name" class="w-full focus:outline-none" />
-                  <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
+                  <Icon name="material-symbols:edit-rounded" class="text-purple-950" />
                 </div>
               </label>
               <label>
-                <p class="font-semibold">Email</p>
+                <p class="font-semibold">{{ $t('email') }}</p>
                 <div class="flex border-b border-stone-700 items-center">
                   <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
                   <input v-model="email" class="w-full focus:outline-none" />
-                  <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
+                  <Icon name="material-symbols:edit-rounded" class="text-purple-950" />
                 </div>
               </label>
               <label>
-                <p class="font-semibold">NIM</p>
+                <p class="font-semibold">{{ $t('nim') }}</p>
                 <div class="flex border-b border-stone-700 items-center">
                   <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
                   <input v-model="nim" class="w-full focus:outline-none" />
-                  <Icon name="material-symbols:edit-rounded" class="text-purple-950"/>
+                  <Icon name="material-symbols:edit-rounded" class="text-purple-950" />
                 </div>
               </label>
             </div>
@@ -84,6 +89,7 @@ const updateUser = async () => {
               <button class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md flex items-center gap-2">
                 <Icon name="teenyicons:save-solid" class="text-sm" />
                 <p>Simpan</p>
+                <Icon v-if="isLoading" name="line-md:loading-loop" />
               </button>
               <NuxtImg src="/img/tult3.png" />
             </div>

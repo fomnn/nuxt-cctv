@@ -17,9 +17,12 @@ const ulangiPassword = ref('');
 const showPassword = ref(false);
 const showKonfPassword = ref(false);
 
+const isLoading = ref(false)
+
 const errorMsd = ref('');
 
 const signUp = async () => {
+  isLoading.value = true
   if (password.value !== ulangiPassword.value) {
     errorMsd.value = 'Password tidak sama';
     return;
@@ -44,6 +47,7 @@ const signUp = async () => {
   } catch (error) {
     console.log(error);
   }
+  isLoading.value = false
 }
 
 </script>
@@ -88,7 +92,7 @@ const signUp = async () => {
               <label>
                 <p>Kata sandi</p>
                 <div class="flex border-b border-stone-600 border-0">
-                  <input :type="showPassword? 'text':'password'" name="" id="" v-model="password"
+                  <input :type="showPassword ? 'text' : 'password'" name="" id="" v-model="password"
                     class="bg-transparent focus:outline-none active:ring-0 border-0 w-full">
                   <button type="button" @click="showPassword = !showPassword" class="px-2">
                     <Icon v-if="showPassword" name="eva:eye-outline" class="text-gray-700 text-2xl" />
@@ -99,7 +103,7 @@ const signUp = async () => {
               <label>
                 <p>Ulangi Kata Sandi</p>
                 <div class="flex border-b border-stone-600 border-0">
-                  <input :type="showKonfPassword? 'text':'password'" name="" id="" v-model="ulangiPassword"
+                  <input :type="showKonfPassword ? 'text' : 'password'" name="" id="" v-model="ulangiPassword"
                     class="bg-transparent focus:outline-none active:ring-0 border-0 w-full">
                   <button type="button" @click="showKonfPassword = !showKonfPassword" class="px-2">
                     <Icon v-if="showKonfPassword" name="eva:eye-outline" class="text-gray-700 text-2xl" />
@@ -109,7 +113,10 @@ const signUp = async () => {
               </label>
               <p class="text-red-600">{{ errorMsd }}</p>
             </div>
-            <button class="bg-yellow-500 text-white py-2 px-12 rounded-3xl font-semibold w-fit">Daftar</button>
+            <button class="bg-yellow-500 text-white py-2 px-6 flex items-center gap-2 rounded-3xl font-semibold w-fit">
+              Daftar
+              <Icon v-if="isLoading" name="line-md:loading-loop" />
+            </button>
           </form>
         </div>
       </div>

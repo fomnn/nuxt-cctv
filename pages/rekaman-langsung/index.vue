@@ -6,6 +6,7 @@ definePageMeta({
 
 const router = useRouter();
 const supabase = useSupabaseClient();
+const localPath = useLocalePath();
 
 const allLantai = async () => {
   const { data, error } = await supabase.from('lantai').select('*').order('id', { ascending: true });
@@ -31,10 +32,10 @@ console.log(semuaLantai);
         <button @click="router.go(-1)" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
           <Icon name="typcn:arrow-back" class="" />
         </button>
-        <h2>Rekaman Langsung</h2>
-      </div>
+        <h2>{{ $t('rekaman_langsung') }}</h2>
+      </div> 
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
-        <NuxtLink v-for="lantai of semuaLantai" :to="'/rekaman-langsung/' + lantai.id"
+        <NuxtLink v-for="lantai of semuaLantai" :to="localPath('/rekaman-langsung/' + lantai.id)"
           class="flex items-center justify-between bg-white px-5 py-3 rounded-full" :key="lantai.id">
           <div class="flex items-center gap-2 text-lg">
             <div

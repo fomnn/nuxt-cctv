@@ -1,21 +1,37 @@
-<script lang="ts" setup>
+<script setup>
 definePageMeta({
-  middleware: 'auth'
+	middleware: 'auth'
 })
+
+const supabase = useSupabaseClient();
+
+const allPetunjuk = async () => {
+  const { data, error } = await supabase.from('petunjuk_pengguna').select('*').order('id', { ascending: true });
+  if (error) {
+    console.error(error);
+    return null;
+  }
+  return data;
+}
+const semuaPetunjuk = await allPetunjuk()
+
+console.log(semuaPetunjuk)
+
 const curId = ref(1);
 const petunjukPengguna = [
 	{
 		id: 1,
 		imgLink: 'img/server.png',
+		// content: 'Data rekaman akan otomatis tersimpan kedalam server. Pengguna  bisa mengakses seluruh file rekaman tersebut dengan masuk ke menu “Penyimpanan”'
 		content: 'Data rekaman akan otomatis tersimpan kedalam server. Pengguna  bisa mengakses seluruh file rekaman tersebut dengan masuk ke menu “Penyimpanan”'
 	},
 	{
 		id: 2,
 		imgLink: 'img/tempat-sampah.png',
 		content: `File rekaman akan otomatis terhapus dan dipindahkan ke dalam 
- “Tempat Sampah” dalam kurun waktu 30 hari setelah waktu perekaman. 
-Akan tetapi pengguna masih dapat mengakses dan mengembalikan file tersebut melalui menu 
-“Tempat Sampah” sebelum terhapus permanen secara otomatis dalam waktu 40 hari`
+				“Tempat Sampah” dalam kurun waktu 30 hari setelah waktu perekaman. 
+				Akan tetapi pengguna masih dapat mengakses dan mengembalikan file tersebut melalui menu 
+				“Tempat Sampah” sebelum terhapus permanen secara otomatis dalam waktu 40 hari`
 	},
 	{
 		id: 3,
@@ -25,11 +41,11 @@ Akan tetapi pengguna masih dapat mengakses dan mengembalikan file tersebut melal
 ];
 
 const curPetunjukPengguna = computed(() => {
-	return petunjukPengguna.find((item) => item.id === curId.value);
+	return semuaPetunjuk.find((item) => item.id === curId.value);
 });
 
 const nextPetunjukPengguna = () => {
-	if (curId.value < petunjukPengguna.length) {
+	if (curId.value < semuaPetunjuk.length) {
 		curId.value++;
 	}
 };
@@ -53,23 +69,25 @@ const prevPetunjukPengguna = () => {
 				<NuxtLink to="/home" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
 					<Icon name="typcn:arrow-back" class="" />
 				</NuxtLink>
-				<h2>Petunjuk Pengguna</h2>
+				<h2>{{ $t('petunjuk_pengguna') }}</h2>
 			</div>
 			<div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 justify-between">
 				<div class="grid gap-6">
 					<div class="bg-white rounded-3xl flex flex-col items-center justify-center px-4 py-4 h-[20rem]">
-						<NuxtImg :src="curPetunjukPengguna?.imgLink" class="w-5/12" />
+						<NuxtImg :src="curPetunjukPengguna?.link_gambar" class="w-5/12" />
 					</div>
 					<div class="px-8">
-						<p class="text-center">{{ curPetunjukPengguna?.content }}</p>
+						<p class="text-center">{{ curPetunjukPengguna?.deskripsi }}</p>
 					</div>
 				</div>
 				<div class="flex justify-between">
 					<button @click="prevPetunjukPengguna" v-if="curId > 1"
-						class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1.5 rounded-lg" >Kembali</button>
+						class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1.5 rounded-lg">{{
+							$t('kembali') }}</button>
 					<div v-else></div>
 					<button @click="nextPetunjukPengguna" v-if="curId < petunjukPengguna.length"
-						class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1.5 rounded-lg">Lanjut</button>
+						class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1.5 rounded-lg">{{
+							$t('lanjut') }}</button>
 					<div v-else></div>
 				</div>
 			</div>
