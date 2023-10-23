@@ -9,9 +9,23 @@ const route = useRoute();
 const supabase = useSupabaseClient();
 
 const curLantai = route.params.lantai;
-const curWaktu = route.params.waktu;
+const curTanggal = route.params.tanggal;
 console.log(curLantai);
-console.log(curWaktu);
+console.log(curTanggal);
+
+
+function formatDate(tanggal) {
+  const dateObj = new Date(tanggal);
+  const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+  const dayName = days[dateObj.getDay()];
+  const dateNum = dateObj.getDate();
+  const monthName = months[dateObj.getMonth()];
+  const year = dateObj.getFullYear();
+
+  return `${dayName}, ${dateNum} ${monthName} ${year}`;
+}
 </script>
 
 <template>
@@ -26,7 +40,7 @@ console.log(curWaktu);
         <button @click="router.go(-1)" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
           <Icon name="typcn:arrow-back" class="" />
         </button>
-        <h2></h2>
+        <h2>Penyimpanan</h2>
       </div>
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
         <div class="bg-white flex flex-col items-center py-6 rounded-lg px-6 gap-4">
@@ -35,17 +49,18 @@ console.log(curWaktu);
               class="bg-gradient-to-br from-purple-950 to-rose-700 w-7 h-7 flex items-center justify-center rounded-full text-white">
               <Icon name="mdi:cctv" />
             </div>
-            <h2 class="text-xl font-semibold">Lantai 1</h2>
-            <div class="flex gap-2">
-              <p>Semua Waktu</p>
-              <p>-</p>
-              <p>Semua Tanggal</p>
+            <h2 class="text-xl font-semibold">{{ curLantai }}</h2>
+            <div class="">
+              <p>{{ formatDate(curTanggal) }}</p>
             </div>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <NuxtLink class="bg-slate-400 w-full h-28 rounded-md" v-for="i in 5">
-              kamera
-            </NuxtLink>
+            <div class="flex items-start gap-1" v-for="i in 5">
+              <NuxtLink class="bg-slate-400 w-full h-28 rounded-md">
+                kamera
+              </NuxtLink>
+              <button class="bg-gradient-to-br from-purple-950 to-rose-700 px-4 py-1 rounded-lg text-white">Hapus</button>
+            </div>
           </div>
         </div>
       </div>

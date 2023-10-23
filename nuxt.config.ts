@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@vueuse/nuxt',
     '@vexip-ui/nuxt',
-    '@nuxtjs/supabase'
+    '@nuxtjs/supabase',
   ],
   supabase: {
     redirect: false
@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      title: "Monitoring CCTV"
     }
-  }
+  },
 })
