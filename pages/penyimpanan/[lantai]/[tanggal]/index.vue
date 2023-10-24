@@ -13,7 +13,6 @@ const curTanggal = route.params.tanggal;
 console.log(curLantai);
 console.log(curTanggal);
 
-
 function formatDate(tanggal) {
   const dateObj = new Date(tanggal);
   const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
@@ -26,8 +25,23 @@ function formatDate(tanggal) {
 
   return `${dayName}, ${dateNum} ${monthName} ${year}`;
 }
-
 const currTanggal = formatDate(curTanggal);
+
+const curLantaiTampil = () => {
+  if (curLantai == '1') {
+    return "Basement"
+  } else {
+    return "Lantai " + (curLantai*1 - 1)
+  }
+}
+
+let { data: rekaman, error } = await supabase
+  .from('rekaman')
+  .select("*")
+  .eq('lantai_id', curLantai)
+console.log(rekaman);
+// const records = supabase.from('rekaman').select('*').eq('lantai_id', curLantai).eq('tanggal', curtanggal);
+// console.log(records);
 </script>
 
 <template>
@@ -51,15 +65,15 @@ const currTanggal = formatDate(curTanggal);
               class="bg-gradient-to-br from-purple-950 to-rose-700 w-7 h-7 flex items-center justify-center rounded-full text-white">
               <Icon name="mdi:cctv" />
             </div>
-            <h2 class="text-xl font-semibold">{{ curLantai }}</h2>
+            <h2 class="text-xl font-semibold">{{ curLantaiTampil() }}</h2>
             <div class="flex gap-2">
               <p>{{ currTanggal }}</p>
             </div>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <div class="flex gap-2" v-for="i in 5">
-              <NuxtLink to="#" class="bg-slate-400 w-full h-10 rounded-md flex items-center px-3" :key="i">
-                kamera - {{ i }}
+            <div class="flex gap-2" v-for="data of rekaman">
+              <NuxtLink to="#" class="bg-slate-400 w-full h-10 rounded-md flex items-center px-3" :key="data.id">
+                kamera - {{ data.id }}
               </NuxtLink>
               <button class="bg-red-600 rounded-lg px-4 text-white">hapus</button>
             </div>

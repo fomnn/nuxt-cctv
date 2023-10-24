@@ -7,6 +7,8 @@ definePageMeta({
 const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 
+const localPath = useLocalePath();
+
 const full_name = ref(user.value?.user_metadata.nama_lengkap);
 const email = ref(user.value?.email);
 const nim = ref(user.value?.user_metadata.nim);
@@ -45,6 +47,13 @@ const updateUser = async () => {
 
       <!-- <div class="mask-circle-out"></div> -->
       <BottomNavigation />
+
+      <div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
+        <NuxtLink :to="localPath('/profile')" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
+          <Icon name="typcn:arrow-back" class="" />
+        </NuxtLink>
+        <h2>{{$t('profil')}}</h2>
+      </div>
 
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center">
         <div

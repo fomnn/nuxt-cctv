@@ -1,8 +1,5 @@
 
 <script lang="ts" setup>
-useHead({
-  title: 'Cctv'
-})
 
 const router = useRouter();
 const user = useSupabaseUser();

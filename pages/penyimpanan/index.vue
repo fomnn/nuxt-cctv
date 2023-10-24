@@ -21,6 +21,7 @@ const pilihLokasi = ref(false)
 const pilihTanggal = ref(false)
 const tanggalTerpilih = ref("")
 const curLokasi = ref("Pilih Lokasi")
+const curLokasi2 = ref("");
 const curTanggal = ref("Pilih Tanggal")
 
 
@@ -65,9 +66,11 @@ const cari = () => {
   if (curLokasi.value == "Pilih Lokasi" || curTanggal.value == "Pilih Tanggal") {
     alert("Pilih lokasi, dan tanggal terlebih dahulu");
   } else {
-    router.push(`/penyimpanan/${curLokasi.value}/${tanggalTerpilih.value}`);
+    router.push(`/penyimpanan/${curLokasi2.value}/${tanggalTerpilih.value}`);
   }
 }
+
+console.log(curLokasi2.value);
 </script>
 
 <template>
@@ -103,7 +106,7 @@ const cari = () => {
             <div
               class="bg-white/60 overflow-y-auto rounded-b-2xl pt-3 pb-2 max-h-48 transition-all ease-in-out duration-150 flex flex-col items-start"
               v-if="pilihLokasi">
-              <button @click="[pilihLokasi = false, curLokasi = lantai.lantai.charAt(0).toUpperCase() + lantai.lantai.slice(1)]" class="hover:bg-stone-400/30 px-4 py-1 transition-colors ease-in w-full text-start" v-for="lantai in semuaLantai" :key="lantai.id">
+              <button @click="[pilihLokasi = false, curLokasi = lantai.lantai.charAt(0).toUpperCase() + lantai.lantai.slice(1), curLokasi2 = lantai.id]" class="hover:bg-stone-400/30 px-4 py-1 transition-colors ease-in w-full text-start" v-for="lantai in semuaLantai" :key="lantai.id">
               {{ lantai.lantai }}
             </button>
             </div>
