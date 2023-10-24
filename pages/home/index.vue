@@ -2,9 +2,6 @@
 definePageMeta({
   middleware: 'auth'
 })
-useHead({
-  title: 'Cctv'
-})
 const user = useSupabaseUser()
 const localPath = useLocalePath()
 const pencarian = ref("")
@@ -29,12 +26,6 @@ const pencarian = ref("")
             <h1 class="text-2xl font-medium">{{ $t('welcome') }}</h1>
             <p class="">{{ user?.user_metadata.nama_lengkap }}</p>
             <NuxtLink :to="localPath('/profile')" class="w-fit bg-orange-400 px-8 py-1 my-2 rounded-full">{{ $t('profil') }}</NuxtLink>
-          </div>
-        </div>
-        <div class="flex justify-between items-center bg-white p-2 pl-5 rounded-3xl w-full">
-          <input type="text" class="focus:ring-0 w-full border-0" :placeholder="$t('pencarian')" id="" name="" v-model="pencarian">
-          <div class="w-7 h-7 bg-gradient-to-br from-purple-950 to-rose-700 rounded-full flex justify-center items-center">
-            <Icon name="ph:magnifying-glass-bold" class="text-white" />
           </div>
         </div>
         <div class="flex flex-col gap-4">
