@@ -56,6 +56,7 @@ console.log(semuaCam);
             <!-- <p class="text-lg">{{ lantai[0].lantai }}</p> -->
           </div>
           <div class="flex flex-col w-full gap-2">
+            
             <NuxtLink to="/rekaman-langsung/lantai-1/semua-kamera/tult-1" class="bg-slate-400 w-full h-28 rounded-md" v-for="i in semuaCam" :key="i" >
               kamera
             </NuxtLink>

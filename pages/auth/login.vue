@@ -73,7 +73,7 @@ const signIn = async () => {
     </div>
     <div class="flex gap-2 items-center">
       <p class="text-white">Belum punya akun?</p>
-      <NuxtLink to="/auth/daftar" @click="console.log('terclick')" class="text-yellow-500">Daftar</NuxtLink>
+      <NuxtLink to="/auth/daftar" class="text-yellow-500">Daftar</NuxtLink>
     </div>
   </div>
 </template>
