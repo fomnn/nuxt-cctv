@@ -42,5 +42,7 @@ export default defineNuxtConfig({
     defaultLocale: 'id-ID',
     
   },
-  
+  nitro: {
+    preset: 'stormkit'
+  }
 })

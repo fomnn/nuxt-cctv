@@ -15,16 +15,19 @@
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
         <div class="bg-white flex flex-col items-center py-6 rounded-lg px-6 gap-4">
           <div class="flex flex-col items-center">
-            <div class="bg-gradient-to-br from-purple-950 to-rose-700 w-7 h-7 flex items-center justify-center rounded-full text-white">
+            <div
+              class="bg-gradient-to-br from-purple-950 to-rose-700 w-7 h-7 flex items-center justify-center rounded-full text-white">
               <Icon name="mdi:cctv" />
             </div>
             <h2 class="text-xl font-semibold">Tult 01</h2>
             <p class="text-lg">Lantai 1</p>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <div class="bg-slate-400 w-full h-28 rounded-md">
+            <VideoPlayer type="default" previewImageLink="/img/hehe.webp" link="/hls/output.m3u8"
+              :progress="30" class="customClassName rounded-md" />
+            <!-- <div class="bg-slate-400 w-full h-28 rounded-md">
               kamera
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -32,7 +35,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup >
+import { VideoPlayer } from 'vue-hls-video-player';
+
 definePageMeta({
   middleware: 'auth'
 })

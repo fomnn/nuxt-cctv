@@ -58,7 +58,7 @@ console.log(lantai[0]);
             <p class="text-lg">{{ lantai[0].lantai }}</p>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <NuxtLink :to="localPath('/rekaman-langsung/lantai-1/semua-kamera/tult-1')" class="bg-slate-400 w-full h-28 rounded-md">
+            <NuxtLink :to="localPath(`/rekaman-langsung/${route.params.path_lantai}/${route.params.path_kamera}/tult-1`)" class="bg-slate-400 w-full h-28 rounded-md">
               kamera
             </NuxtLink>
           </div>
