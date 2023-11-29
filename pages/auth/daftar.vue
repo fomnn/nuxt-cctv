@@ -38,12 +38,12 @@ const signUp = async () => {
       }
     })
     if (error) {
-      
+      throw error;
     } else {
       router.push('/auth/login')
     }
   } catch (error) {
-    console.log(error);
+    alert(error.message)
   }
   isLoading.value = false
 }

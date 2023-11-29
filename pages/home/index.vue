@@ -4,7 +4,6 @@ definePageMeta({
 })
 const user = useSupabaseUser()
 const localPath = useLocalePath()
-const pencarian = ref("")
 
 </script>
 

@@ -1,13 +1,4 @@
 
-<script lang="ts" setup>
-
-const router = useRouter();
-const user = useSupabaseUser();
-
-
-
-</script>
-
 <template>
   <div class="bw-screen h-screen bg-gradient-to-br from-purple-950 to-rose-700 flex flex-col items-center justify-center">
     <div class="bg-white flex flex-col items-center w-8/12 rounded-3xl py-6 gap-3">
