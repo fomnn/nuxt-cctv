@@ -43,7 +43,8 @@ const signUp = async () => {
       router.push('/auth/login')
     }
   } catch (error) {
-    alert(error.message)
+    alert((error as Error).message);
+
   }
   isLoading.value = false
 }
