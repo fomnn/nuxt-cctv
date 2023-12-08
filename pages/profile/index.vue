@@ -64,6 +64,16 @@ console.log(curUser.value)
               </div>
               <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
             </NuxtLink>
+            <NuxtLink :to="localPath('/profile/ubah-password')" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
+              <div class="flex items-center gap-2 text-lg">
+                <div
+                  class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
+                  <Icon name="material-symbols:edit-rounded" />
+                </div>
+                <p>{{ $t('ubah_password') }}</p>
+              </div>
+              <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
+            </NuxtLink>
             <NuxtLink :to="localPath('/profile/ubah-bahasa')" class="flex items-center justify-between bg-white px-5 py-2 rounded-full">
               <div class="flex items-center gap-2 text-lg">
                 <div

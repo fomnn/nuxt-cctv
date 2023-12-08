@@ -68,7 +68,7 @@ const signIn = async () => {
               <Icon v-if="isLoading" name="line-md:loading-loop" />
             </button>
 
-        <NuxtLink to="#" class="text-white">Lupa kata sandi?</NuxtLink>
+        <NuxtLink to="/auth/lupa-password" class="text-white">Lupa kata sandi?</NuxtLink>
       </form>
     </div>
     <div class="flex gap-2 items-center">

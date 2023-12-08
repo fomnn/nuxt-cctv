@@ -57,10 +57,10 @@ console.log(semuaCam);
             <h2 class="text-xl font-semibold">{{ lantai[0].lantai }}</h2>
           </div>
           <div class="grid grid-cols-3 w-full gap-2">
-            <NuxtLink :to="localPath('/rekaman-langsung/'+route.params.path_lantai+'/semua-kamera')" class="flex flex-col items-center border border-slate-400 rounded-md col-span-3 px-1 py-2">
+            <!-- <NuxtLink :to="localPath('/rekaman-langsung/'+route.params.path_lantai+'/semua-kamera')" class="flex flex-col items-center border border-slate-400 rounded-md col-span-3 px-1 py-2">
               <Icon name="mdi:cctv" class="text-3xl" />
               <h3>All Camera</h3>
-            </NuxtLink>
+            </NuxtLink> -->
             <NuxtLink :to="localPath('/rekaman-langsung/'+route.params.path_lantai+'/'+kamera.id)" class="flex flex-col items-center border border-slate-400 rounded-md px-1 py-2" v-for="kamera in semuaCam" :key="kamera.id">
               <Icon name="mdi:cctv" class="text-3xl" /> 
               <h3>{{ kamera.kamera }}</h3>

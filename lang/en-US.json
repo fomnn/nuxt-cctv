@@ -3,6 +3,7 @@
 
     "ubah_bahasa": "Change Language",
     "ubah_profil": "Change Profile",
+    "ubah_password": "Change Password",
     "pengaturan_lainnya": "Other Settings",
     "keamanan_akun": "Account Security",
 
@@ -30,5 +31,8 @@
     "cari": "Search",
 
     "lanjut": "Next",
-    "kembali": "back"
+    "kembali": "back",
+
+    "password_baru": "New Password",
+    "konfirmasi_password_baru": "Confirm New Password"
 }

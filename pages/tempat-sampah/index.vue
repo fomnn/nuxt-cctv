@@ -22,7 +22,7 @@ const localPath = useLocalePath()
         <h2>{{ $t('tempat_sampah') }}</h2>
       </div>
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center gap-8">
-        <div class="flex flex-col gap-3 w-full">
+        <!-- <div class="flex flex-col gap-3 w-full">
           <div 
             class="flex items-center justify-between bg-white px-5 py-1 rounded-full w-full" v-for="i in 3" :key="i">
             <div class="flex items-center gap-3 text-lg">
@@ -38,7 +38,7 @@ const localPath = useLocalePath()
             <Icon name="ic:outline-keyboard-arrow-down" class="text-2xl text-orange-400" />
           </div>
         </div>
-        <button class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md">{{ $t('pulihkan') }}</button>
+        <button class="text-white bg-orange-400 px-7 py-1 rounded-full text-xl shadow-md">{{ $t('pulihkan') }}</button> -->
       </div>
     </div>
   </div>

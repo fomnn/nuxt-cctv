@@ -3,6 +3,7 @@
 
     "ubah_bahasa": "Ubah Bahasa",
     "ubah_profil": "Ubah Profil",
+    "ubah_password": "Ubah Password",
     "pengaturan_lainnya": "Pengaturan Lainnya",
     "keamanan_akun": "Keamanan Akun",
 
@@ -31,4 +32,7 @@
 
     "lanjut": "Lanjut",
     "kembali": "Kembali",
+
+    "password_baru": "Password Baru",
+    "konfirmasi_password_baru": "Konfirmasi Password Baru"
 }

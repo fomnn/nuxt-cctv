@@ -23,7 +23,7 @@
             <p class="text-lg">Lantai 1</p>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <VideoPlayer type="default" previewImageLink="/img/hehe.webp" link="/hls/output.m3u8"
+            <VideoPlayer type="default" link="/hls/output.m3u8"
               :progress="30" class="customClassName rounded-md" />
             <!-- <div class="bg-slate-400 w-full h-28 rounded-md">
               kamera

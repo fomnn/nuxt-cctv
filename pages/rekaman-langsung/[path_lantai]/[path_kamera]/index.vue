@@ -30,8 +30,11 @@ const curKamera = async () => {
 }
 const kamera = await curKamera();
 
-console.log(kamera[0]);
-console.log(lantai[0]);
+import { VideoPlayer } from 'vue-hls-video-player';
+
+definePageMeta({
+  middleware: 'auth'
+})
 </script>
 
 <template>
@@ -58,9 +61,8 @@ console.log(lantai[0]);
             <p class="text-lg">{{ lantai[0].lantai }}</p>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <NuxtLink :to="localPath(`/rekaman-langsung/${route.params.path_lantai}/${route.params.path_kamera}/tult-1`)" class="bg-slate-400 w-full h-28 rounded-md">
-              kamera
-            </NuxtLink>
+            <VideoPlayer type="default" previewImageLink="/img/hehe.webp" link="/hls/output.m3u8"
+              :progress="30" class="customClassName rounded-md" />
           </div>
         </div>
       </div>
