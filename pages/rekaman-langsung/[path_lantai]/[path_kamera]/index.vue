@@ -61,8 +61,13 @@ definePageMeta({
             <p class="text-lg">{{ lantai[0].lantai }}</p>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <VideoPlayer type="default" previewImageLink="/img/hehe.webp" link="/hls/output.m3u8"
-              :progress="30" class="customClassName rounded-md" />
+            <VideoPlayer 
+              type="default"  
+              link="/hls/lantai1/kamera1/playlist.m3u8"
+              :progress="30" 
+              class="customClassName rounded-md" 
+              />
+            <!-- <img src="/img/cuplikan.png" alt="" class="rounded-md" /> -->
           </div>
         </div>
       </div>
