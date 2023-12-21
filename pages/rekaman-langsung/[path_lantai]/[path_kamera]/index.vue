@@ -63,11 +63,10 @@ definePageMeta({
           <div class="flex flex-col w-full gap-2">
             <VideoPlayer 
               type="default"  
-              :link="'/root/dev/cctv/2023-12-21/output.m3u8'"
+              :link="'/root/dev/cctv/2023-12-18/output.m3u8'"
               :progress="30"
               class="customClassName rounded-md" 
               />
-            <!-- <img src="/img/cuplikan.png" alt="" class="rounded-md" /> -->
           </div>
         </div>
       </div>
