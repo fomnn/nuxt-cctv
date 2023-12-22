@@ -26,7 +26,8 @@ const updateUser = async () => {
 
     if (error) throw error;
     alert('Berhasil mengubah password');
-    router.push(localPath('/home'))
+    await supabase.auth.signOut()
+    router.push(localPath('/auth/login'))
   } catch (error) {
     console.log(error);
   }

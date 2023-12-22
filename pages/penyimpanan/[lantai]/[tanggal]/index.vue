@@ -35,11 +35,11 @@ const curLantaiTampil = () => {
   }
 }
 
-let { data: rekaman, error } = await supabase
-  .from('rekaman')
-  .select("*")
-  .eq('lantai_id', curLantai)
-console.log(rekaman);
+// let { data: rekaman, error } = await supabase
+//   .from('rekaman')
+//   .select("*")
+//   .eq('lantai_id', curLantai)
+// console.log(rekaman);
 // const records = supabase.from('rekaman').select('*').eq('lantai_id', curLantai).eq('tanggal', curtanggal);
 // console.log(records);
 import { VideoPlayer } from 'vue-hls-video-player';
@@ -72,7 +72,7 @@ import { VideoPlayer } from 'vue-hls-video-player';
             </div>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <div class="flex gap-2" v-for="data of rekaman">
+            <div class="flex gap-2">
               <VideoPlayer type="default" :link="`/root/cctv/${curTanggal}/output.m3u8`" :progress="30"
               class="customClassName rounded-md" />
               <button class="bg-red-600 rounded-lg px-4 text-white">hapus</button>
