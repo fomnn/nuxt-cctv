@@ -40,10 +40,10 @@ const localPath = useLocalePath()
             <Icon name="bx:cctv" class=" "/>
             <p>{{ $t('rekaman_langsung') }}</p>
           </NuxtLink>
-          <NuxtLink :to="localPath('/tempat-sampah')" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full hover:bg-stone-200 transition-colors duration-100 ease-in-out">
+          <!-- <NuxtLink :to="localPath('/tempat-sampah')" class="flex items-center justify-start px-8 text-black gap-4 bg h-20 text-2xl bg-white rounded-2xl shadow w-full hover:bg-stone-200 transition-colors duration-100 ease-in-out">
             <Icon name="material-symbols:delete-outline-sharp" class=" "/>
             <p>{{ $t('tempat_sampah') }}</p>
-          </NuxtLink>
+          </NuxtLink> -->
         </div>
       </div>
 

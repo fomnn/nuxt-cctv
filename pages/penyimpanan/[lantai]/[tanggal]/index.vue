@@ -42,6 +42,7 @@ let { data: rekaman, error } = await supabase
 console.log(rekaman);
 // const records = supabase.from('rekaman').select('*').eq('lantai_id', curLantai).eq('tanggal', curtanggal);
 // console.log(records);
+import { VideoPlayer } from 'vue-hls-video-player';
 </script>
 
 <template>
@@ -72,9 +73,8 @@ console.log(rekaman);
           </div>
           <div class="flex flex-col w-full gap-2">
             <div class="flex gap-2" v-for="data of rekaman">
-              <NuxtLink to="#" class="bg-slate-400 w-full h-10 rounded-md flex items-center px-3" :key="data.id">
-                kamera - {{ data.id }}
-              </NuxtLink>
+              <VideoPlayer type="default" :link="`/root/cctv/${curTanggal}/output.m3u8`" :progress="30"
+              class="customClassName rounded-md" />
               <button class="bg-red-600 rounded-lg px-4 text-white">hapus</button>
             </div>
           </div>

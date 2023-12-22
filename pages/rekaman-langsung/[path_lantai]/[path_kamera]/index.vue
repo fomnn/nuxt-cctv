@@ -30,6 +30,21 @@ const curKamera = async () => {
 }
 const kamera = await curKamera();
 
+
+function formatDate(date){
+  let month = '' + (date.getMonth() + 1)
+  let day = '' + date.getDate()
+  let year = date.getFullYear()
+
+  if (month.length < 2)
+    month = '0' + month;
+  if (day.length < 2)
+    day = '0' + day;
+
+  return [year, month, day].join('-');
+}
+const hariini = formatDate(new Date());
+console.log(hariini)
 import { VideoPlayer } from 'vue-hls-video-player';
 
 definePageMeta({
@@ -54,19 +69,16 @@ definePageMeta({
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl flex flex-col px-5 pt-6 pb-20 gap-3 ">
         <div class="bg-white flex flex-col items-center py-6 rounded-lg px-6 gap-4">
           <div class="flex flex-col items-center">
-            <div class="bg-gradient-to-br from-purple-950 to-rose-700 w-7 h-7 flex items-center justify-center rounded-full text-white">
+            <div
+              class="bg-gradient-to-br from-purple-950 to-rose-700 w-7 h-7 flex items-center justify-center rounded-full text-white">
               <Icon name="mdi:cctv" />
             </div>
             <h2 class="text-xl font-semibold">{{ kamera[0].kamera }}</h2>
             <p class="text-lg">{{ lantai[0].lantai }}</p>
           </div>
           <div class="flex flex-col w-full gap-2">
-            <VideoPlayer 
-              type="default"  
-              :link="'/root/dev/cctv/2023-12-21/output.m3u8'"
-              :progress="30"
-              class="customClassName rounded-md" 
-              />
+            <VideoPlayer type="default" :link="`/root/cctv/${hariini}/output.m3u8`" :progress="30"
+              class="customClassName rounded-md" />
           </div>
         </div>
       </div>
