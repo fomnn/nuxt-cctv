@@ -63,7 +63,7 @@ console.log(semuaCam);
             </NuxtLink> -->
             <NuxtLink :to="localPath('/rekaman-langsung/'+route.params.path_lantai+'/'+kamera.id)" class="flex flex-col items-center border border-slate-400 rounded-md px-1 py-2" v-for="kamera in semuaCam" :key="kamera.id">
               <Icon name="mdi:cctv" class="text-3xl" /> 
-              <h3>{{ kamera.kamera }}</h3>
+              <h3>{{ $t('kamera') +" - "+ kamera.kamera }}</h3>
             </NuxtLink>
           </div>
         </div>

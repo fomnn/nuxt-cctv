@@ -3,47 +3,30 @@ definePageMeta({
 	middleware: 'auth'
 })
 
+import { useI18n } from "vue-i18n";
+
+const i18nLocale = useI18n();
+console.log(i18nLocale.locale.value);
+
+const apakahIndonesia = () => {
+	return i18nLocale.locale.value === 'id-ID'
+}
+const router = useRouter();
 const supabase = useSupabaseClient();
 
 const allPetunjuk = async () => {
-  const { data, error } = await supabase.from('petunjuk_pengguna').select('*').order('id', { ascending: true });
-  if (error) {
-    console.error(error);
-    return null;
-  }
-  return data;
+	const { data, error } = await supabase.from('petunjuk_pengguna').select('*').order('id', { ascending: true });
+	if (error) {
+		console.error(error);
+		return null;
+	}
+	return data;
 }
 const semuaPetunjuk = await allPetunjuk()
-
-console.log(semuaPetunjuk)
-
 const curId = ref(1);
-const petunjukPengguna = [
-	{
-		id: 1,
-		imgLink: 'img/server.png',
-		// content: 'Data rekaman akan otomatis tersimpan kedalam server. Pengguna  bisa mengakses seluruh file rekaman tersebut dengan masuk ke menu “Penyimpanan”'
-		content: 'Data rekaman akan otomatis tersimpan kedalam server. Pengguna  bisa mengakses seluruh file rekaman tersebut dengan masuk ke menu “Penyimpanan”'
-	},
-	{
-		id: 2,
-		imgLink: 'img/tempat-sampah.png',
-		content: `File rekaman akan otomatis terhapus dan dipindahkan ke dalam 
-				“Tempat Sampah” dalam kurun waktu 30 hari setelah waktu perekaman. 
-				Akan tetapi pengguna masih dapat mengakses dan mengembalikan file tersebut melalui menu 
-				“Tempat Sampah” sebelum terhapus permanen secara otomatis dalam waktu 40 hari`
-	},
-	{
-		id: 3,
-		imgLink: 'img/cctv.png',
-		content: `Untuk memantau rekaman langsung dari CCTV bisa dilakukan dengan cara pilih menu “Rekaman Langsung”, kemudian pilih ruangan mana yang ingin dipantau. Dalam menu tersebut dapat terlihat semua CCTV yang terpasang di ruangan tersebut. Pilih CCTV mana yang ingin dipantau secara langsung`
-	},
-];
-
 const curPetunjukPengguna = computed(() => {
 	return semuaPetunjuk.find((item) => item.id === curId.value);
 });
-
 const nextPetunjukPengguna = () => {
 	if (curId.value < semuaPetunjuk.length) {
 		curId.value++;
@@ -66,7 +49,7 @@ const prevPetunjukPengguna = () => {
 		</div>
 		<div class="absolute w-screen top-0 left-0 min-h-screen flex flex-col ">
 			<div class="flex items-center gap-5 text-white text-2xl py-6 px-8">
-				<NuxtLink to="/home" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
+				<NuxtLink @click="router.go(-1)" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center cursor-pointer">
 					<Icon name="typcn:arrow-back" class="" />
 				</NuxtLink>
 				<h2>{{ $t('petunjuk_pengguna') }}</h2>
@@ -77,7 +60,7 @@ const prevPetunjukPengguna = () => {
 						<NuxtImg :src="curPetunjukPengguna?.link_gambar" class="w-5/12" />
 					</div>
 					<div class="px-8">
-						<p class="text-center">{{ curPetunjukPengguna?.deskripsi }}</p>
+						<p class="text-center">{{ apakahIndonesia() ? curPetunjukPengguna?.deskripsi : curPetunjukPengguna?.deskripsi_english }}</p>
 					</div>
 				</div>
 				<div class="flex justify-between">
@@ -85,7 +68,7 @@ const prevPetunjukPengguna = () => {
 						class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1.5 rounded-lg">{{
 							$t('kembali') }}</button>
 					<div v-else></div>
-					<button @click="nextPetunjukPengguna" v-if="curId < petunjukPengguna.length"
+					<button @click="nextPetunjukPengguna" v-if="curId < semuaPetunjuk.length"
 						class="text-white bg-gradient-to-br from-purple-950 to-rose-700 px-7 py-1.5 rounded-lg">{{
 							$t('lanjut') }}</button>
 					<div v-else></div>
@@ -100,4 +83,5 @@ const prevPetunjukPengguna = () => {
 	@apply bg-gray-400 absolute inset-0 opacity-70 -z-10;
 	/* bg-gray-400 untuk background abu-abu, absolute dan inset-0 untuk posisi dan ukuran penuh */
 	mask-image: radial-gradient(circle at 50% -100%, transparent 20%, transparent 70%, black 70.1%);
-}</style>
+}
+</style>

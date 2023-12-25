@@ -17,7 +17,6 @@ const allLantai = async () => {
   return data;
 }
 const semuaLantai = await allLantai();
-console.log(semuaLantai);
 </script>
 
 <template>
@@ -42,7 +41,7 @@ console.log(semuaLantai);
               class="bg-gradient-to-br from-purple-950 to-rose-700 w-6 h-6 flex items-center justify-center rounded-full text-white">
               <Icon name="ic:twotone-location-on" />
             </div>
-            <p>{{ lantai.lantai }}</p>
+            <p>{{ $t('lantai')+" - "+lantai.lantai }}</p>
           </div>
           <Icon name="material-symbols:chevron-right" class="text-2xl text-orange-400" />
         </NuxtLink>

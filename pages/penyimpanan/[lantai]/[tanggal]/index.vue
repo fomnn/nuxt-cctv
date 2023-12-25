@@ -73,9 +73,8 @@ import { VideoPlayer } from 'vue-hls-video-player';
           </div>
           <div class="flex flex-col w-full gap-2">
             <div class="flex gap-2">
-              <VideoPlayer type="default" :link="`/root/cctv/${curTanggal}/output.m3u8`" :progress="30"
+              <VideoPlayer type="default" :link="`/hls/1/${curTanggal}/output.m3u8`" :progress="30"
               class="customClassName rounded-md" />
-              <button class="bg-red-600 rounded-lg px-4 text-white">hapus</button>
             </div>
           </div>
         </div>

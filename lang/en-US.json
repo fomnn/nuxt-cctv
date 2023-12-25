@@ -34,5 +34,8 @@
     "kembali": "back",
 
     "password_baru": "New Password",
-    "konfirmasi_password_baru": "Confirm New Password"
+    "konfirmasi_password_baru": "Confirm New Password",
+
+    "lantai": "Floor",
+    "kamera": "Camera"
 }
