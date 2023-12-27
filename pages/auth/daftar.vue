@@ -34,6 +34,7 @@ const signUp = async () => {
         data: {
           nama_lengkap: fullName.value,
           nim: nim.value,
+          avatar: ''
         }
       }
     })

@@ -34,6 +34,90 @@ const updateUser = async () => {
   isLoading.value = false;
   alert('Berhasil mengubah profil');
 }
+
+
+////////////////////////////////======================================
+
+let metadata = user.value?.user_metadata;
+console.log(metadata)
+const path = ref(metadata?.avatar);
+
+const uploading = ref(false)
+const src = ref('')
+const files = ref()
+
+const downloadImage = async () => {
+  try {
+    console.log('tes')
+    const { data, error } = await supabase.storage.from('avatars').download(path.value)
+    if (error) throw error
+    src.value = URL.createObjectURL(data)
+  } catch (error) {
+    console.error('Error downloading image: ', error.message)
+  }
+}
+
+const uploadAvatar = async (evt) => {
+  files.value = evt.target.files
+  try {
+    uploading.value = true
+
+    if (!files.value || files.value.length === 0) {
+      throw new Error('You must select an image to upload.')
+    }
+
+    const file = files.value[0]
+    const fileExt = file.name.split('.').pop()
+    const fileName = `${Math.random()}.${fileExt}`
+    const filePath = `${fileName}`
+
+    const { error: uploadError } = await supabase.storage.from('avatars').upload(filePath, file)
+
+    if (uploadError) throw uploadError
+
+    // emit('update:path', filePath)
+    // emit('upload')
+
+    path.value = filePath
+    updatePP();
+    console.log(metadata)
+  } catch (error) {
+    console.log(error.message)
+    alert(error.message)
+  } finally {
+    uploading.value = false
+  }
+}
+
+async function updatePP() {
+  try {
+
+    const updates = {
+      avatar: path.value,
+      nama_lengkap: metadata.nama_lengkap,
+      nim: metadata.nim,
+    }
+
+    const { error } = await supabase.auth.updateUser({
+      data: updates
+    })
+    console.log(metadata)
+
+    if (error) throw error
+  } catch (error) {
+    alert(error.message)
+  } finally {
+  }
+}
+
+downloadImage()
+
+watch(path, () => {
+  if (path.value) {
+    downloadImage()
+  }
+})
+
 </script>
 
 <template>
@@ -52,7 +136,7 @@ const updateUser = async () => {
         <NuxtLink :to="localPath('/profile')" class="bg-orange-400 h-9 w-9 rounded-full flex justify-center items-center">
           <Icon name="typcn:arrow-back" class="" />
         </NuxtLink>
-        <h2>{{$t('profil')}}</h2>
+        <h2>{{ $t('profil') }}</h2>
       </div>
 
       <div class="bg-white/70 flex-1 rounded-se-3xl rounded-ss-3xl  px-5 pt-6 pb-20 flex flex-col items-center">
@@ -69,6 +153,21 @@ const updateUser = async () => {
         <div class="bg-white w-10/12 flex flex-col px-4 py-3 rounded-b-lg">
           <form @submit.prevent="updateUser" class="flex flex-col gap-16">
             <div class="flex flex-col gap-4">
+
+              <label>
+                <p class="font-semibold">{{ $t('nama_lengkap') }}</p>
+                <div class="flex justify-between items-center gap-6">
+                  <!-- <input type="text" name="" id="" class="w-full border-0 focus:outline-none"> -->
+                  <img v-if="src" :src="src" alt="Avatar" class="avatar image" style="width: 10em; height: 10em;" />
+                  <div v-else class="avatar no-image" style=" height: 10em; width: 10em">belum ada avatar</div>
+                  <div class="mt-8">
+                    <label class="">Upload Avatar Baru: </label>
+                    <input type="file" id="single" accept="image/*" @change="uploadAvatar" :disabled="uploading" />
+                  </div>
+                </div>
+              </label>
+
+
               <label>
                 <p class="font-semibold">{{ $t('nama_lengkap') }}</p>
                 <div class="flex border-b border-stone-700 items-center">
