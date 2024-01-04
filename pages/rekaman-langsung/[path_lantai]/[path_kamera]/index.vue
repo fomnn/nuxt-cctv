@@ -4,12 +4,7 @@
   const route = useRoute();
   const supabase = useSupabaseClient();
   const localPath = useLocalePath();
-  // useHead({
-  //   script: [
-  //         {src: 'video.core.min.js'},
-  //         {src: 'videojs-http-streaming.min.js'}
-  //       ]
-  // })
+
   definePageMeta({
     middleware: 'auth'
   })
@@ -26,7 +21,10 @@
   const lantai = await curLantai();
 
   const curKamera = async () => {
-    const { data, error } = await supabase.from('kamera').select('kamera').eq('id', route.params.path_kamera);
+    const { data, error } = await supabase
+                                  .from('kamera')
+                                  .select('kamera')
+                                  .eq('id', route.params.path_kamera);
     if (error) {
       console.error(error);
       return null;
@@ -85,7 +83,7 @@
               <VideoPlayer 
                 type="default"  
                 previewImageLink="/img/preview-cctv.webp" 
-                link="/hls/1/2023-12-24/output.m3u8"
+                :link="`/hls/1/${hariini}/output.m3u8`"
                 :progress="30" 
                 :isMuted="false" 
                 :isControls="true" 
